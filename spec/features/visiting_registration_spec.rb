@@ -4,7 +4,7 @@ feature 'Visiting the Registration Page' do
 
   it 'displays a link to login' do
     visit register_path
-    find_link 'Log In'
+    find_link 'Login'
   end
 
   it 'shows a registration form' do

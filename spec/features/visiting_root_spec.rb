@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Visting Root' do
+feature 'Visiting Root' do
   it 'when logged in shows a welcome message' do
     user = User.create(name: 'John Doe', email: 'john@me.com', password: 'password')
     visit login_path
@@ -9,7 +9,6 @@ feature 'Visting Root' do
     click_button 'Login'
     visit root_path
     expect(current_path).to eq(root_path)
-    expect(page).to have_content('Welcome')
   end
 
   it 'when not logged in redirects to a registration page' do
@@ -17,5 +16,4 @@ feature 'Visting Root' do
     expect(current_path).to eq('/register')
   end
 
-  it 'when logged in shows a welcome message'
 end

@@ -6,7 +6,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+      <div class="container-fluid">
+          <div class="navbar-header"><a class="navbar-brand" href="http://localhost:3000/register">Unicoin</a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+              </button>
+          </div>
+          <div class="collapse navbar-collapse navbar-menubuilder">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="http://localhost:3000/about_us">About Us</a>
+                  </li>
+                  <li><a href="http://localhost:3000/faq">FAQ</a>
+                  </li>
+                  <li><a href="http://localhost:3000">Home</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
 <!-- added these lines -->
 <% if current_user %>
   Signed in as <%= current_user.name %> | <%= link_to "Logout", logout_path %>

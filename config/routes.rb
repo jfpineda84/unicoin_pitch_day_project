@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'page#index'
 
   get '/secret' => 'page#secret'
+  get '/about_us' => 'page#about_us'
+  get '/faq' => 'page#faq'
 
   get '/register' => 'users#new'
   resources :users
