@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
+
+<% @questions.each do |question| %>
+  <b><%= question.position %></b>
+  <%= question.text %><br><br>
+<% end %>

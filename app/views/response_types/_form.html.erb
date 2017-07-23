@@ -1,0 +1,27 @@
+<%= form_with(model: response_type, local: true) do |form| %>
+  <% if response_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(response_type.errors.count, "error") %> prohibited this response_type from being saved:</h2>
+
+      <ul>
+      <% response_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :response_type_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.text_area :data, id: :response_type_data %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

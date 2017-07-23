@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719214140) do
+ActiveRecord::Schema.define(version: 20170722173203) do
+
+  create_table "forms", force: :cascade do |t|
+    t.string "form"
+    t.string "tax_return"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "position"
+    t.string "name"
+    t.string "text"
+    t.integer "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "response_type"
+    t.index ["form_id"], name: "index_questions_on_form_id"
+  end
+
+  create_table "response_types", force: :cascade do |t|
+    t.string "type"
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_responses", force: :cascade do |t|
+    t.text "response"
+    t.integer "user_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_user_responses_on_question_id"
+    t.index ["user_id"], name: "index_user_responses_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

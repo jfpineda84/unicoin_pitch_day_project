@@ -11,7 +11,55 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require bootstrap/dist/js/bootstrap
 //= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$( document ).ready(function(){
+  $(document).on('click', '.submit', function(e){
+    e.preventDefault();
+    // see what is this
+
+    $.ajax({
+      // The URL for the request
+      url: $(this).closest('form').attr('action'),
+      // The data to send (will be converted to a query string)
+      data: {
+        user_response: {
+          user_id: $("#user_response_user_id").val(),
+          question_id: $("#user_response_question_id").val(),
+          response: $("#user_response_response").val()
+        }
+      },
+      // Whether this is a POST or GET request
+      type: "POST",
+      // The type of data we expect back
+      dataType : "json",
+      headers: {
+        'X-CSRF-Token': $('[name="authenticity_token"]').val()
+      }
+    })
+    // Code to run if the request succeeds (is done);
+    // The response is passed to the function
+    .done(function( data ) {
+      $.ajax({
+        // The URL for the request
+        url: data.url,
+        // The data to send (will be converted to a query string)
+
+        // Whether this is a POST or GET request
+        type: "GET",
+        // The type of data we expect back
+        dataType : "HTML",
+      })
+      .done(function( data ) {
+        $(".user-response-form").fadeOut(function(){
+          $(".user-response-form").html(data)
+          $(".user-response-form").fadeIn('fast')
+        })
+      });
+    });
+  });
+});

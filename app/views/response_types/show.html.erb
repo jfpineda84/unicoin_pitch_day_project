@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @response_type.type %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @response_type.data %>
+</p>
+
+<%= link_to 'Edit', edit_response_type_path(@response_type) %> |
+<%= link_to 'Back', response_types_path %>
