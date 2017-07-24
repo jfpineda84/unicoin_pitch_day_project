@@ -4,7 +4,7 @@ class UserResponsesController < ApplicationController
   # GET /user_responses
   # GET /user_responses.json
   def index
-    @user_responses = UserResponse.all
+    @user_responses = current_user.user_responses
   end
 
   # GET /user_responses/1
@@ -25,6 +25,7 @@ class UserResponsesController < ApplicationController
 
   # GET /user_responses/1/edit
   def edit
+     c
   end
 
   # POST /user_responses
@@ -79,4 +80,5 @@ class UserResponsesController < ApplicationController
     def user_response_params
       params.require(:user_response).permit(:response, :user_id, :question_id)
     end
+
 end

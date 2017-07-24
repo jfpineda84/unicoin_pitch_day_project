@@ -5,9 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Response</th>
-      <th>User</th>
       <th>Question</th>
+      <th>Response</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +14,11 @@
   <tbody>
     <% @user_responses.each do |user_response| %>
       <tr>
+        <td><%= user_response.question.text %></td>
         <td><%= user_response.response %></td>
-        <td><%= user_response.user %></td>
-        <td><%= user_response.question %></td>
         <td><%= link_to 'Show', user_response %></td>
         <td><%= link_to 'Edit', edit_user_response_path(user_response) %></td>
-        <td><%= link_to 'Destroy', user_response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', user_response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

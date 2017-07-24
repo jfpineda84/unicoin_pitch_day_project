@@ -30,7 +30,7 @@ $( document ).ready(function(){
         user_response: {
           user_id: $("#user_response_user_id").val(),
           question_id: $("#user_response_question_id").val(),
-          response: $("#user_response_response").val()
+          response: getResponse()
         }
       },
       // Whether this is a POST or GET request
@@ -63,3 +63,10 @@ $( document ).ready(function(){
     });
   });
 });
+
+getResponse = function(){
+  if($("#user_response_response").length) return $("#user_response_response").val();
+  if($('input[type="radio"]:checked').length) return $('input[type="radio"]:checked').val();
+}
+
+// $("#user_response_response").val()
