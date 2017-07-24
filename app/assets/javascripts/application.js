@@ -15,9 +15,6 @@
 //= require bootstrap/dist/js/bootstrap
 //= require turbolinks
 //= require_tree .
-<<<<<<< Updated upstream
-
-
 $( document ).ready(function(){
   $(document).on('click', '.submit', function(e){
     e.preventDefault();
@@ -63,7 +60,6 @@ $( document ).ready(function(){
       });
     });
   });
-=======
 function printMessage(message) {
   $('#messages').append(message + "<br>");
 }
@@ -108,6 +104,4 @@ $(function() {
             $input.val('');
         }
      });
-
->>>>>>> Stashed changes
 });
