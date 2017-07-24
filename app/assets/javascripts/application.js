@@ -60,6 +60,7 @@ $( document ).ready(function(){
       });
     });
   });
+
 function printMessage(message) {
   $('#messages').append(message + "<br>");
 }
