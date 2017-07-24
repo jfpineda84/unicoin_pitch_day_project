@@ -1,1 +1,5 @@
-<h1>Display for logged user start new or load form.</h1>
+<center><h1>Welcome, <%= current_user.name.capitalize %>!</center>
+
+<h2><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path %></h2>
+<h2><%= link_to 'Continue FAFSA', brand_new_path %></h2>
+<h2><%= link_to 'Update a saved FAFSA', user_responses_path %></h2>

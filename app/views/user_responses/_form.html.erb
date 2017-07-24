@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
+<center>
   <div class="field">
     <%= label_tag @question.text %>
     <% response_type = @question.response_type  %>
     <% if response_type == "String" %>
-    <%= form.text_area :response, id: :user_response_response %>
+    <%= form.text_field :response, id: :user_response_response %>
     <% elsif response_type == "Integer" %>
     <%= form.number_field :response, id: :user_response_response %>
     <% elsif response_type == "Multiple choice" %>
@@ -24,16 +25,9 @@
         <%= form.label answer %>
         <%= form.radio_button :response, answer %>
       <% end %>
-    <% elsif response_type == "Yes or no" %>
-    <%= form.radio_button :response, id: :user_response_response %>
-    <% elsif response_type == "Tel" %>
-    <%= form.telephone_field :response, id: :user_response_response %>
-    <% elsif response_type == "Birth date" %>
-    <%= form.date_field :response, id: :user_response_response %>
     <% end %>
 
   </div>
-
 
   <%= hidden_field_tag :user_id, current_user.id, id: :user_response_user_id %>
   <%= hidden_field_tag :question_id, @question.id, id: :user_response_question_id %>
@@ -41,4 +35,5 @@
   <div class="actions">
     <%= form.submit 'Next', class: "submit" %>
   </div>
+</center>
 <% end %>

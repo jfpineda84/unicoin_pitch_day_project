@@ -4,7 +4,7 @@ class UserResponsesController < ApplicationController
   # GET /user_responses
   # GET /user_responses.json
   def index
-    @user_responses = UserResponse.all
+    @user_responses = current_user.user_responses
   end
 
   # GET /user_responses/1
@@ -12,9 +12,18 @@ class UserResponsesController < ApplicationController
   def show
   end
 
+  def brand_new
+    @user_response ||= current_user.user_responses.last
+    if !@user_response.nil?
+      @question = Question.find(@user_response.question.id+1)
+      render :partial => 'user_responses/form', locals: {user_response: @user_response}
+    end
+  end
+
   # GET /user_responses/new
   def new
     @user_response = UserResponse.new
+
     if params[:question_id].present?
       @question = Question.find(params[:question_id])
         render :partial => 'user_responses/form', locals: {user_response: @user_response}
@@ -79,4 +88,5 @@ class UserResponsesController < ApplicationController
     def user_response_params
       params.require(:user_response).permit(:response, :user_id, :question_id)
     end
+
 end

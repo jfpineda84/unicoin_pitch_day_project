@@ -1,6 +1,45 @@
 <h1>Editing User Response</h1>
 
-<%= render 'form', user_response: @user_response %>
+<%= form_with(model: @user_response, local: true) do |form| %>
+  <% if @user_response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
+
+      <ul>
+      <% @user_response.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<center>
+  <div class="field">
+    <%= label_tag @user_response.question.text %>
+    <% response_type = @user_response.question.response_type  %>
+    <% if response_type == "String" %>
+    <%= form.text_field :response, id: :user_response_response %>
+    <% elsif response_type == "Integer" %>
+    <%= form.number_field :response, id: :user_response_response %>
+    <% elsif response_type == "Multiple choice" %>
+      <% answers = "Question::#{@user_response.question.name.upcase}_ANSWERS".constantize if "Question::#{@user_response.question.name.upcase}_ANSWERS".constantize %>
+      <% answers.each do |answer| %>
+        <%= form.label answer %>
+        <%= form.radio_button :response, answer %>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <%= hidden_field_tag :user_id, current_user.id, id: :user_response_user_id %>
+  <%= hidden_field_tag :question_id, @user_response.question.id, id: :user_response_question_id %>
+
+  <div class="actions">
+    <%= form.submit 'Save' %>
+  </div>
+</center>
+<% end %>
+
 
 <%= link_to 'Show', @user_response %> |
 <%= link_to 'Back', user_responses_path %>
