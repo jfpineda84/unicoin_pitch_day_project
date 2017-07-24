@@ -38784,3 +38784,150 @@ Completed 200 OK in 85ms (Views: 81.3ms | ActiveRecord: 0.2ms)
             FROM sqlite_temp_master
             WHERE name='index_user_responses_on_question_id' AND type='index'
 [0m
+Started GET "/" for 127.0.0.1 at 2017-07-24 19:32:01 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PageController#index as HTML
+Redirected to http://localhost:3000/register
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2017-07-24 19:32:01 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (178.1ms)
+  Rendered users/new.html.erb within layouts/application (198.7ms)
+Completed 200 OK in 1884ms (Views: 1830.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/live_chat" for 127.0.0.1 at 2017-07-24 19:32:10 -0400
+Processing by PageController#live_chat as HTML
+Redirected to http://localhost:3000/register
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2017-07-24 19:32:10 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.4ms)
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 87ms (Views: 83.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/live_chat" for 127.0.0.1 at 2017-07-24 19:32:11 -0400
+Processing by PageController#live_chat as HTML
+Redirected to http://localhost:3000/register
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2017-07-24 19:32:11 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.8ms)
+  Rendered users/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 94ms (Views: 90.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-07-24 19:32:32 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vdrTi1nBzZJx7cb1dK4mw4WTpfVmmbnvVHRQx5cYUtc0aPQxO4bTKpTUhVavkM0AxARPSD1JXPpLDmg0OhtfIg==", "user"=>{"name"=>"1234", "email"=>"1234@1234", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (15.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "1234"], ["email", "1234@1234"], ["password_digest", "$2a$10$xNW5bQJkHf6TrWAh.jfZ3uF.morvFIsZ6LhvMZAb5Kx8UL.1bt3zy"], ["created_at", "2017-07-24 23:32:32.221036"], ["updated_at", "2017-07-24 23:32:32.221036"]]
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms (ActiveRecord: 30.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-24 19:32:32 -0400
+Processing by PageController#index as HTML
+  Rendering page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered page/index.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 137ms (Views: 123.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user_responses/new" for 127.0.0.1 at 2017-07-24 19:32:47 -0400
+Processing by UserResponsesController#new as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY "questions"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering user_responses/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered user_responses/_form.html.erb (3.6ms)
+  Rendered user_responses/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 126ms (Views: 55.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/brand_new" for 127.0.0.1 at 2017-07-24 19:32:51 -0400
+Processing by UserResponsesController#brand_new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserResponse Load (0.4ms)[0m  [1m[34mSELECT  "user_responses".* FROM "user_responses" WHERE "user_responses"."user_id" = ? ORDER BY "user_responses"."id" DESC LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  Rendering user_responses/brand_new.html.erb within layouts/application
+  Rendered user_responses/_form.html.erb (24.0ms)
+  Rendered user_responses/brand_new.html.erb within layouts/application (26.9ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_with(model: user_response, local: true) do |form| %>
+    2:   <% if user_response.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
+    5: 
+  
+app/views/user_responses/_form.html.erb:2:in `block in _app_views_user_responses__form_html_erb___3562096017224625864_70279372112380'
+app/views/user_responses/_form.html.erb:1:in `_app_views_user_responses__form_html_erb___3562096017224625864_70279372112380'
+app/views/user_responses/brand_new.html.erb:3:in `_app_views_user_responses_brand_new_html_erb__2194337548478040048_70279372195580'
+Started GET "/brand_new" for 127.0.0.1 at 2017-07-24 19:33:00 -0400
+Processing by UserResponsesController#brand_new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserResponse Load (0.6ms)[0m  [1m[34mSELECT  "user_responses".* FROM "user_responses" WHERE "user_responses"."user_id" = ? ORDER BY "user_responses"."id" DESC LIMIT ?[0m  [["user_id", 6], ["LIMIT", 1]]
+  Rendering user_responses/brand_new.html.erb within layouts/application
+  Rendered user_responses/_form.html.erb (7.2ms)
+  Rendered user_responses/brand_new.html.erb within layouts/application (11.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_with(model: user_response, local: true) do |form| %>
+    2:   <% if user_response.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
+    5: 
+  
+app/views/user_responses/_form.html.erb:2:in `block in _app_views_user_responses__form_html_erb___3562096017224625864_70279311884100'
+app/views/user_responses/_form.html.erb:1:in `_app_views_user_responses__form_html_erb___3562096017224625864_70279311884100'
+app/views/user_responses/brand_new.html.erb:3:in `_app_views_user_responses_brand_new_html_erb__2194337548478040048_70279312224760'
+Started GET "/" for 127.0.0.1 at 2017-07-24 19:33:02 -0400
+Processing by PageController#index as HTML
+  Rendering page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered page/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 134ms (Views: 100.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/user_responses" for 127.0.0.1 at 2017-07-24 19:33:03 -0400
+Processing by UserResponsesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering user_responses/index.html.erb within layouts/application
+  [1m[36mUserResponse Load (0.3ms)[0m  [1m[34mSELECT "user_responses".* FROM "user_responses" WHERE "user_responses"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered user_responses/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 88ms (Views: 73.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-24 19:33:05 -0400
+Processing by PageController#index as HTML
+  Rendering page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered page/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 72ms (Views: 68.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/user_responses" for 127.0.0.1 at 2017-07-24 19:33:28 -0400
+Processing by UserResponsesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering user_responses/index.html.erb within layouts/application
+  [1m[36mUserResponse Load (0.4ms)[0m  [1m[34mSELECT "user_responses".* FROM "user_responses" WHERE "user_responses"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered user_responses/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 63ms (Views: 55.7ms | ActiveRecord: 0.6ms)
+
+
