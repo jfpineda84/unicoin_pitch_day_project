@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
   # This route will allow a user to see all of the quesitons on the FAFSA form.
   get '/questions/index' => 'questions#index'
+  get '/brand_new' => 'user_responses#brand_new', as: :brand_new 
 end
