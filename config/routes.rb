@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :forms
   root 'page#index'
 
+  get '/live_chat' => 'page#live_chat'
   get '/secret' => 'page#secret'
   get '/about_us' => 'page#about_us'
   get '/faq' => 'page#faq'
+  post '/tokens' => "tokens#create"
 
   get '/register' => 'users#new'
   resources :users

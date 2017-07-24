@@ -7,6 +7,8 @@ end
 
 gem 'pry-rails'
 gem 'rails-erd'
+gem 'twilio-ruby'
+gem 'envyable'
 gem 'bcrypt'
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
