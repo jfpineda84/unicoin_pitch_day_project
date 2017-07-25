@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 questions = [
 
+# Before FAFSA is started, generate a pop up that provides user with basic information about the FAFSA. 4 sections about you, your living situation, your finance's, and your parent's finances. List the
 
 # SECTION 1: BASIC INFO
 
@@ -25,6 +26,7 @@ questions = [
   {position: 12, name: 'license_state' , text: "Your driver's license state (two-letter abbreviation)", response_type: 'String'},
   {position: 13, name: 'email_address' , text: 'Your email address', response_type: 'String'},
   {position: 14, name: 'citizenship' , text: 'Are you a US citizen? Mark only one', response_type: 'Multiple choice'},
+  # If user is not a citizen or eligible non-citizen, generate a pop up explaining that they will not be eligible for federal financial aid, but should still complete the FAFSA because they may be eligible for state financial aid or school-based financial aid.
   {position: 15, name: 'alien_number' , text: 'Alien Registration Number', response_type: 'String'},
   {position: 16, name: 'marital_status' , text: 'What is your marital status as of today?', response_type: 'Multiple choice'},
   {position: 17, name: 'marital_date' , text: 'Month and year you were married, remarried, separated, divorced, or widowed (format: MM/YYYY)', response_type: 'String'},
@@ -44,8 +46,48 @@ questions = [
   {position: 31, name: 'work_study' , text: 'Are you interested in being considered for work-study?', response_type: 'Multiple choice'},
 
 
+  # SECTION 2: DEPENDENCY QUESTIONS
+  # If YES to any of these, skip ALL section 4 questions
 
-# SECTION 2: STUDENT FINANCIAL INFO
+
+    {position: 46, name: 'before_1994' , text: 'Were you born before January 1, 1994?', response_type: 'Multiple choice'},
+    #this should be able to be answered by question 9
+    {position: 47, name: 'marital_status' , text: 'As of today, are you married? (Also answer "Yes" if you are separated but not divorced)', response_type: 'Multiple choice'},
+    #this should be able to be answered by question 16
+    {position: 48, name: 'degree_option' , text: "At the beginning of the 2017-2018 school year, will you be working on a master's or doctorate program (such as an MA, MBA, MD, JD, PHD, EdD, graduate certificate, etc?)", response_type: 'Multiple choice'},
+    {position: 49, name: 'active_military' , text: 'Are you currently serving on active duty in the US Armed Forces for purposes other than training?', response_type: 'Multiple choice'},
+    {position: 50, name: 'veteran_status' , text: 'Are you a veteran of the US Armed Forces?', response_type: 'Multiple choice'},
+    {position: 51, name: 'dependent_children' , text: 'Do you now have or will you have children who will receive more than half of their support from you between July 1, 2017 and June 30, 2018?', response_type: 'Multiple choice'},
+    {position: 52, name: 'other_dependents' , text: 'Do you have dependents (other than your children or spouse) who live with you and who receive more than half of their support from you, now and through June 30, 2018?', response_type: 'Multiple choice'},
+    {position: 53, name: 'parental_loss' , text: 'At any time since you turned age 13, were both your parents deceased, were you in foster care or were you a dependent or ward of the court?', response_type: 'Multiple choice'},
+    {position: 54, name: 'emancipated_minor' , text: 'As determined by a court in your state of legal residence, are you or were you an emancipated minor?', response_type: 'Multiple choice'},
+    {position: 55, name: 'legal_guardianship' , text: 'Does someone other than your parent or stepparent have legal guardianship of you, as determined by a court in your state of legal residence?', response_type: 'Multiple choice'},
+    {position: 56, name: 'school_homeless' , text: 'At any time on or after July 1, 2016, did your high school or school district homeless liaison determine that you were an unaccompanied youth who was homeless or were self-supporting and at risk of being homeless?', response_type: 'Multiple choice'},
+    {position: 57, name: 'shelter_homeless' , text: 'At any time on or after July 1, 2016, did the directory of an emergency shelter or transitional housing program funded by the US Department of Housing and Urban Development determine that you were an unaccompanied youth who was homeless or were self-supporting and at risk of being homeless?', response_type: 'Multiple choice'},
+    {position: 58, name: 'runaway_homeless' , text: 'At any time on or after July 1, 2016, did the director of a runaway or homeless youth basic center or transitional living program determine that you were an unaccompanied youth who was homeless or were self-supporting and at risk of being homeless?', response_type: 'Multiple choice'},
+
+
+
+# SECTION 3: STUDENT FINANCIAL INFO (NON TAX)
+
+
+
+{position: 41, name: 'account_balance' , text: "As of today, what is your (and spouse's) total current balance of cash, savings, and checking accounts? Don't include student financial aid.", response_type: 'Integer'},
+{position: 42, name: 'real_estate' , text: "As of today, what is the net worth of your (and spouse's) investments, including real estate? Don't include the home you live in.", response_type: 'Integer'},
+{position: 43, name: 'business_investments' , text: "As of today, what is the net worth of your (and spouse's) current businesses and/or investment farms? Don't include a family farm or family business with 100 or fewer full-time or full-time equivalent employees.", response_type: 'Integer'},
+{position: 44, name: 'child_support_paid' , text: "Child support paid because of divorce or separation or as a result of a legal requirement. Don't include support for children in your household, as reported in question 95.", response_type: 'Integer'},
+{position: 44, name: 'need_based_employment' , text: 'Taxable earnings from need-based employment programs, such as Federal Work-Study and need-based employment programs of fellowships and assistantships', response_type: 'Integer'},
+{position: 44, name: 'grants_and_scholarships' , text: 'Taxable college grant and scholarship aid reported to the IRS in your adjusted gross income. Includes AmeriCorps benefits (awards, living allowances and interest accrual payments), as well as grant and scholarship portions of fellowships and assistantships.', response_type: 'Integer'},
+{position: 44, name: 'combat_pay' , text: "Combat pay or special combat pay. Only enter the amount that was taxable and included in your adjusted gross income. Don't include untaxed combat pay.", response_type: 'Integer'},
+{position: 44, name: 'education_coop' , text: 'Earnings from work under a cooperative education program offered by a college.', response_type: 'Integer'},
+{position: 45, name: 'child_support_received' , text: "Child support received for any of your children. Don't include foster care or adoption payments.", response_type: 'Integer'},
+{position: 45, name: 'living_allowances' , text: "Housing, food and other living allowances paid to members of the military, clergy and others (including cash payments and cash value of benefits). Don't include the value of on-base military housing or the value of a basic military allowance for housing.", response_type: 'Integer'},
+{position: 45, name: 'veteran_benefits' , text: 'Veterans noneducation benefits, such as Disability, Death Pension, or Dependency & Indemnity Compensation (DIC) and/or VA Educational Work-Study Allowances.', response_type: 'Integer'},
+{position: 45, name: 'untaxed_income' , text: "Other untaxed income not reported in items 45a through 45h, such as worker's compensation, disability benefits, etc. Also include the untaxed portions of health savings accounts from IRS Form 1040 - line 25. Don't include extended foster care benefits, student aid, earned income credit, additional child tax credit, welfare payments, untaxed Social Security benefits, Supplemental Security Income, Workforce Innovation and Opportunity Act education, benefits, on-base military housing or a military housing allowance, combat pay, benefits from flexible spending arrangements (e.g. cafeteria plans), foreign income exclusion or credit for federal tax on special fuels.", response_type: 'Integer'},
+{position: 45, name: 'money_received', text: 'Money received, or paid on your behalf (i.e. bills) not reported elsewhere on this form. This includes money that you received from a parent or other person whose financial information is not reported on this form and that is not part of a legal child support agreement.', response_type: 'Integer'},
+
+
+# SECTION 3: STUDENT FINANCIAL INFO (TAX)
 
 
 
@@ -57,49 +99,18 @@ questions = [
   {position: 38, name: 'exemptions' , text: "Enter your (and your spouse's) exemptions for 2015. Exemptions are on IRS Form 1040 line 6d or Form 1040A line 6d. For Form 1040EZ, leave this question blank", response_type: 'Integer'},
   {position: 39, name: 'total_earnings' , text: 'Questions 39 and 40 ask about earnings (wages, salaries, tips, etc) in 2015. Answer the questions whether or not a tax return was filed. This information may be on the W-2 forms or on the tax return selected in question 33; IRS Form 1040 - lines 7+12+18+Box 14 (Code A) of IRS Schedule K-1 (Form 1065); 1040A - line 7; or 1040EZ- line 1. If any individual earning item is negative, do not include that item in your calculation. How much did you ea}, from working in 2015?', response_type: 'Integer'},
   {position: 40, name: 'spouse_total_earnings' , text: 'How much did your spouse earn from working in 2015?', response_type: 'Integer'},
-  {position: 41, name: 'account_balance' , text: "As of today, what is your (and spouse's) total current balance of cash, savings, and checking accounts? Don't include student financial aid.", response_type: 'Integer'},
-  {position: 42, name: 'real_estate' , text: "As of today, what is the net worth of your (and spouse's) investments, including real estate? Don't include the home you live in.", response_type: 'Integer'},
-  {position: 43, name: 'business_investments' , text: "As of today, what is the net worth of your (and spouse's) current businesses and/or investment farms? Don't include a family farm or family business with 100 or fewer full-time or full-time equivalent employees.", response_type: 'Integer'},
   {position: 44, name: 'education_credits' , text: 'Education credits (American Opportunity Tax Credit and Lifetime Learning Tax Credit) from IRS form 1040 - line 50 or 1040A - line 33', response_type: 'Integer'},
-  {position: 44, name: 'child_support_paid' , text: "Child support paid because of divorce or separation or as a result of a legal requirement. Don't include support for children in your household, as reported in question 95.", response_type: 'Integer'},
-  {position: 44, name: 'need_based_employment' , text: 'Taxable earnings from need-based employment programs, such as Federal Work-Study and need-based employment programs of fellowships and assistantships', response_type: 'Integer'},
-  {position: 44, name: 'grants_and_scholarships' , text: 'Taxable college grant and scholarship aid reported to the IRS in your adjusted gross income. Includes AmeriCorps benefits (awards, living allowances and interest accrual payments), as well as grant and scholarship portions of fellowships and assistantships.', response_type: 'Integer'},
-  {position: 44, name: 'combat_pay' , text: "Combat pay or special combat pay. Only enter the amount that was taxable and included in your adjusted gross income. Don't include untaxed combat pay.", response_type: 'Integer'},
-  {position: 44, name: 'education_coop' , text: 'Earnings from work under a cooperative education program offered by a college.', response_type: 'Integer'},
   {position: 45, name: 'pension_and_retirement' , text: "Payments to tax-deferred pension and retirement savings plans (paid directly or withheld from earnings), including, but not limited to, amounts reported on the W-2 forms in Boxes 12a through 12d, codes D, E, F, G, H and S. Don't include amounts reported in code DD (employer contributions toward employee health benefits).", response_type: 'Integer'},
   {position: 45, name: 'ira_money' , text: 'IRA deducations and payments to self-employed SEP, SIMPLE, Keogh and other qualified plans fromIRS Form 1040 - line 28 + line 32 or 1040A - line 17.', response_type: 'Integer'},
-  {position: 45, name: 'child_support_received' , text: "Child support received for any of your children. Don't include foster care or adoption payments.", response_type: 'Integer'},
   {position: 45, name: 'tax_exempt_income' , text: 'Tax exempt interest income from IRS Form 1040 - line 8b or 1040A - line 8b', response_type: 'Integer'},
   {position: 45, name: 'untaxed_distributions' , text: 'Untaxed portions of distributions from IRS Form 1040 - lines (15a minus 15b) or 1040A - lines (11a minus 11b). Exclude rollovers. If negative, enter a zero here.', response_type: 'Integer'},
   {position: 45, name: 'untaxed_pensions' , text: 'Untaxed portions of pensions from IRS Form 1040 - lines (16a minus 16b) or 1040A - lines (12a minus 12b). Exclude rollovers. If negative, enter a zero here.', response_type: 'Integer'},
-  {position: 45, name: 'living_allowances' , text: "Housing, food and other living allowances paid to members of the military, clergy and others (including cash payments and cash value of benefits). Don't include the value of on-base military housing or the value of a basic military allowance for housing.", response_type: 'Integer'},
-  {position: 45, name: 'veteran_benefits' , text: 'Veterans noneducation benefits, such as Disability, Death Pension, or Dependency & Indemnity Compensation (DIC) and/or VA Educational Work-Study Allowances.', response_type: 'Integer'},
-  {position: 45, name: 'untaxed_income' , text: "Other untaxed income not reported in items 45a through 45h, such as worker's compensation, disability benefits, etc. Also include the untaxed portions of health savings accounts from IRS Form 1040 - line 25. Don't include extended foster care benefits, student aid, earned income credit, additional child tax credit, welfare payments, untaxed Social Security benefits, Supplemental Security Income, Workforce Innovation and Opportunity Act education, benefits, on-base military housing or a military housing allowance, combat pay, benefits from flexible spending arrangements (e.g. cafeteria plans), foreign income exclusion or credit for federal tax on special fuels.", response_type: 'Integer'},
-  {position: 45, name: 'money_received', text: 'Money received, or paid on your behalf (i.e. bills) not reported elsewhere on this form. This includes money that you received from a parent or other person whose financial information is not reported on this form and that is not part of a legal child support agreement.', response_type: 'Integer'},
 
 
 
-# SECTION 3: DEPENDENCY QUESTIONS
-# If YES to any of these, skip ALL section 4 questions
+# PARENT FINANCIAL INFO (NON TAX)
 
-
-  {position: 46, name: 'before_1994' , text: 'Were you born before January 1, 1994?', response_type: 'Multiple choice'},
-  {position: 47, name: 'marital_status' , text: 'As of today, are you married? (Also answer "Yes" if you are separated but not divorced)', response_type: 'Multiple choice'},
-  {position: 48, name: 'degree_option' , text: "At the beginning of the 2017-2018 school year, will you be working on a master's or doctorate program (such as an MA, MBA, MD, JD, PHD, EdD, graduate certificate, etc?)", response_type: 'Multiple choice'},
-  {position: 49, name: 'active_military' , text: 'Are you currently serving on active duty in the US Armed Forces for purposes other than training?', response_type: 'Multiple choice'},
-  {position: 50, name: 'veteran_status' , text: 'Are you a veteran of the US Armed Forces?', response_type: 'Multiple choice'},
-  {position: 51, name: 'dependent_children' , text: 'Do you now have or will you have children who will receive more than half of their support from you between July 1, 2017 and June 30, 2018?', response_type: 'Multiple choice'},
-  {position: 52, name: 'other_dependents' , text: 'Do you have dependents (other than your children or spouse) who live with you and who receive more than half of their support from you, now and through June 30, 2018?', response_type: 'Multiple choice'},
-  {position: 53, name: 'parental_loss' , text: 'At any time since you turned age 13, were both your parents deceased, were you in foster care or were you a dependent or ward of the court?', response_type: 'Multiple choice'},
-  {position: 54, name: 'emancipated_minor' , text: 'As determined by a court in your state of legal residence, are you or were you an emancipated minor?', response_type: 'Multiple choice'},
-  {position: 55, name: 'legal_guardianship' , text: 'Does someone other than your parent or stepparent have legal guardianship of you, as determined by a court in your state of legal residence?', response_type: 'Multiple choice'},
-  {position: 56, name: 'school_homeless' , text: 'At any time on or after July 1, 2016, did your high school or school district homeless liaison determine that you were an unaccompanied youth who was homeless or were self-supporting and at risk of being homeless?', response_type: 'Multiple choice'},
-  {position: 57, name: 'shelter_homeless' , text: 'At any time on or after July 1, 2016, did the directory of an emergency shelter or transitional housing program funded by the US Department of Housing and Urban Development determine that you were an unaccompanied youth who was homeless or were self-supporting and at risk of being homeless?', response_type: 'Multiple choice'},
-  {position: 58, name: 'runaway_homeless' , text: 'At any time on or after July 1, 2016, did the director of a runaway or homeless youth basic center or transitional living program determine that you were an unaccompanied youth who was homeless or were self-supporting and at risk of being homeless?', response_type: 'Multiple choice'},
-
-
-
-# PARENT FINANCIAL INFO
+# PARENT FINANCIAL INFO (TAX)
 
 
 
