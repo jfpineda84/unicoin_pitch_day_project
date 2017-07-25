@@ -15,8 +15,8 @@ class UserResponsesController < ApplicationController
   def brand_new
     @user_response ||= current_user.user_responses.last
     if !@user_response.nil?
-      @question = Question.find(@user_response.question.id+1)
-      render :partial => 'user_responses/form', locals: {user_response: @user_response}
+      @question = Question.find(@user_response.question.id)
+      render :partial => 'user_responses/brand_new_form', locals: {user_response: @user_response}
     end
   end
 
@@ -39,7 +39,7 @@ class UserResponsesController < ApplicationController
   # POST /user_responses
   # POST /user_responses.json
   def create
-    @user_response = UserResponse.new(user_response_params)
+    @user_response = current_user.user_responses.new(user_response_params)
     # @user_response.user_id = params[:user_id]
     # @user_response.question_id = params[:question_id]
 
@@ -47,10 +47,16 @@ class UserResponsesController < ApplicationController
     # base on the question postions going be getting the next question
 
     respond_to do |format|
-      format.json { render json: { is_success: @user_response.save,
-                                    url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1),
-                                  }
-                    }
+      format.json {
+        render json: {
+          is_success: @user_response.save,
+          url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+        }
+      }
+      format.html {
+        @user_response.save!
+        redirect_to new_user_response_path(question_id: @user_response.next_question.id)
+      }
     end
   end
 

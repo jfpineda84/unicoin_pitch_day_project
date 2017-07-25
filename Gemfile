@@ -63,7 +63,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2017-07-24 19:28:51 -0400 by juanfer:
-gem "paperclip", "~> 5.1"
+# gem "paperclip", "~> 5.1"
 
 # Added at 2017-07-24 21:23:23 -0400 by juanfer:
-gem "aws-sdk", "~> 2.10"
+# gem "aws-sdk", "~> 2.10"
