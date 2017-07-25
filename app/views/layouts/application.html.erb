@@ -3,6 +3,7 @@
 <head>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag '//media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.8/twilio-ip-messaging.min.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,7 +15,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="http://localhost:3000/about_us">About Us</a>
+                  <li><a href="http://localhost:3000/live_chat" onclick="window.open('http://localhost:3000/live_chat', 'newwindow', 'width=450, height=550'); return false;">Live Chat</a>
                   </li>
                   <li><a href="http://localhost:3000/faq">FAQ</a>
                   </li>

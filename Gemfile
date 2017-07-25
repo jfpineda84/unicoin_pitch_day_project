@@ -7,6 +7,8 @@ end
 
 gem 'pry-rails'
 gem 'rails-erd'
+gem 'twilio-ruby'
+gem 'envyable'
 gem 'bcrypt'
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -45,6 +47,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -58,3 +61,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Added at 2017-07-24 19:28:51 -0400 by juanfer:
+gem "paperclip", "~> 5.1"
+
+# Added at 2017-07-24 21:23:23 -0400 by juanfer:
+gem "aws-sdk", "~> 2.10"
