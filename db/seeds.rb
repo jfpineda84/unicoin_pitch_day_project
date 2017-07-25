@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 questions = [
 
-# Before FAFSA is started, generate a pop up that provides user with basic information about the FAFSA. 4 sections about you, your living situation, your finance's, and your parent's finances. List the
+# Before FAFSA is started, generate a pop up that provides user with basic information about the FAFSA. 4 sections about you, your living situation, your finance's, and your parent's finances. List the relevant documents or difficult to access information that they will need to complete the FAFSA and inform them that they may save their responses and continue at a later time.
 
 # SECTION 1: BASIC INFO
+# Direct user to answer these questions about THEMSELVES, not their parents or guardians.
 
 
   {position: 1, name: 'last_name' , text: 'Full legal last name', response_type: 'String'},
@@ -51,10 +52,11 @@ questions = [
 
 
     {position: 46, name: 'before_1994' , text: 'Were you born before January 1, 1994?', response_type: 'Multiple choice'},
-    #this should be able to be answered by question 9
+    # this should be able to be answered by question 9
     {position: 47, name: 'marital_status' , text: 'As of today, are you married? (Also answer "Yes" if you are separated but not divorced)', response_type: 'Multiple choice'},
-    #this should be able to be answered by question 16
+    # this should be able to be answered by question 16
     {position: 48, name: 'degree_option' , text: "At the beginning of the 2017-2018 school year, will you be working on a master's or doctorate program (such as an MA, MBA, MD, JD, PHD, EdD, graduate certificate, etc?)", response_type: 'Multiple choice'},
+    # this should be able to be answered by question 30
     {position: 49, name: 'active_military' , text: 'Are you currently serving on active duty in the US Armed Forces for purposes other than training?', response_type: 'Multiple choice'},
     {position: 50, name: 'veteran_status' , text: 'Are you a veteran of the US Armed Forces?', response_type: 'Multiple choice'},
     {position: 51, name: 'dependent_children' , text: 'Do you now have or will you have children who will receive more than half of their support from you between July 1, 2017 and June 30, 2018?', response_type: 'Multiple choice'},
@@ -70,11 +72,11 @@ questions = [
 
 # SECTION 3: STUDENT FINANCIAL INFO (NON TAX)
 
-
+# User should be directed to answer these questions about THEMSELVES.
 
 {position: 41, name: 'account_balance' , text: "As of today, what is your (and spouse's) total current balance of cash, savings, and checking accounts? Don't include student financial aid.", response_type: 'Integer'},
-{position: 42, name: 'real_estate' , text: "As of today, what is the net worth of your (and spouse's) investments, including real estate? Don't include the home you live in.", response_type: 'Integer'},
-{position: 43, name: 'business_investments' , text: "As of today, what is the net worth of your (and spouse's) current businesses and/or investment farms? Don't include a family farm or family business with 100 or fewer full-time or full-time equivalent employees.", response_type: 'Integer'},
+{position: 42, name: 'real_estate' , text: "As of today, what is the current value of your (and spouse's) investments, including real estate? Don't include the home you live in. If you and your spouse do not own any additional properties, put 0", response_type: 'Integer'},
+{position: 43, name: 'business_investments' , text: "As of today, what is the net worth of your (and spouse's) current businesses and/or investment farms? Don't include a family farm or family business with 100 or fewer full-time or full-time equivalent employees. If you ", response_type: 'Integer'},
 {position: 44, name: 'child_support_paid' , text: "Child support paid because of divorce or separation or as a result of a legal requirement. Don't include support for children in your household, as reported in question 95.", response_type: 'Integer'},
 {position: 44, name: 'need_based_employment' , text: 'Taxable earnings from need-based employment programs, such as Federal Work-Study and need-based employment programs of fellowships and assistantships', response_type: 'Integer'},
 {position: 44, name: 'grants_and_scholarships' , text: 'Taxable college grant and scholarship aid reported to the IRS in your adjusted gross income. Includes AmeriCorps benefits (awards, living allowances and interest accrual payments), as well as grant and scholarship portions of fellowships and assistantships.', response_type: 'Integer'},
