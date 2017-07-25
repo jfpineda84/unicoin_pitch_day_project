@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # configuration variables for the S3 amazon web services API which utilizes secret keys
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
