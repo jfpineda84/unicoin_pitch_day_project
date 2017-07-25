@@ -16,7 +16,7 @@ class UserResponsesController < ApplicationController
     @user_response ||= current_user.user_responses.last
     if !@user_response.nil?
       @question = Question.find(@user_response.question.id)
-      render :partial => 'user_responses/brand_new_form', locals: {user_response: @user_response}
+      # render :partial => 'user_responses/brand_new_form', locals: {user_response: @user_response}
     end
   end
 
@@ -26,7 +26,7 @@ class UserResponsesController < ApplicationController
 
     if params[:question_id].present?
       @question = Question.find(params[:question_id])
-        render :partial => 'user_responses/form', locals: {user_response: @user_response}
+        # render :partial => 'user_responses/form', locals: {user_response: @user_response}
     else
       @question = Question.first
     end
