@@ -26,14 +26,13 @@
         <%= form.radio_button :response, answer %>
       <% end %>
     <% end %>
-
   </div>
 
   <%= hidden_field_tag :user_id, current_user.id, id: :user_response_user_id %>
   <%= form.hidden_field :question_id, value: @question.id, id: :user_response_question_id %>
 
   <div class="actions">
-    <%= form.submit 'Next', class: "submit" %>
+    <%= form.submit 'Next', class: "brand-new" %>
   </div>
 </center>
 <% end %>
