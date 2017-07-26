@@ -91,7 +91,9 @@ class UserResponsesController < ApplicationController
   end
 
   def image_upload
-    user_response = UserResponse.new(user_response_params)
+    user_response = current_user.user_responses.new(user_response_params)
+    user_response.question = Question.take
+    user_response.save!
     process_image(user_response)
   end
 
@@ -110,26 +112,18 @@ class UserResponsesController < ApplicationController
     def process_image(user_response)
       vision = Google::Cloud::Vision.new project: "silent-bird-174423"#, keyfile: :secret_key_base
 
-      puts "*******????*****Send #{user_response.image_upload.url} to Google*******????*****"
-
-      url = user_response.image_upload.url.to_s
-
-      image = vision.image_upload(url)
-
-      #  "/Users/juanfer/Desktop/wyncode/projects/test_app1/app/assets/images/tax2.png"
+      image = vision.image Paperclip.io_adapters.for(user_response.image_upload).path
 
       text1 = image.text
       text = text1.text.split("\n") #.zip
 
-      p "*******????*****this is the response from google #{text} *******????*****"
+      @ssn = text[9] # SS# FAFSA# 9
+      @address = text[14] # Address FAFSA# 4
+      @city = text[18] # City information FAFSA# 5, 6, 7, 8
+      @money_earned = text[30] # How much money did you earn? FAFSA# 39
+      @gross_income = text[40] # Adjusted gross income? FAFSA# 36
+      @income_tax = text[61]  # Income tax? FAFSA# 57
 
-
-      @ssn = text[9][0] # SS# FAFSA# 9
-      @address = text[14][0] # Address FAFSA# 4
-      @city = text[18][0] # City information FAFSA# 5, 6, 7, 8
-      @money_earned = text[30][0] # How much money did you earn? FAFSA# 39
-      @gross_income = text[40][0] # Adjusted gross income? FAFSA# 36
-      @income_tax = text[61][0]  # Income tax? FAFSA# 57
       byebug
     end
 
