@@ -1,5 +1,4 @@
-<%= form_for(@user_response, multipart: true) do |f| %>
-  <%= form_with(model: UserResponse.new, local: true) do |form| %>
+<%= form_with(model: UserResponse.new, local: true) do |form| %>
     <% if user_response.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
@@ -32,9 +31,9 @@
     <%= hidden_field_tag :user_id, current_user.id, id: :user_response_user_id %>
     <%= form.hidden_field :question_id, value: @question.id, id: :user_response_question_id %>
 
+
     <div class="actions">
       <%= form.submit 'Next', class: "submit" %>
     </div>
   </center>
   <% end %>
-<% end %>
