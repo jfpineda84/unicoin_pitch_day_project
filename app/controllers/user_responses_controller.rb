@@ -55,7 +55,11 @@ class UserResponsesController < ApplicationController
       }
       format.html {
         @user_response.save!
-        redirect_to new_user_response_path(question_id: @user_response.next_question.id)
+        unless @user_response.next_question.nil?
+          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
+        else
+          render partial: 'finish_fafsa'
+        end
       }
     end
   end
@@ -65,7 +69,7 @@ class UserResponsesController < ApplicationController
   def update
     respond_to do |format|
       if @user_response.update(user_response_params)
-        format.html { redirect_to @user_response, notice: 'User response was successfully updated.' }
+        format.html { redirect_to new_user_response_path(question_id: @user_response.next_question.id) }
         format.json { render :show, status: :ok, location: @user_response }
       else
         format.html { render :edit }

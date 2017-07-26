@@ -3,7 +3,7 @@ class Question < ApplicationRecord
   has_many :user_responses
 
   def next_question
-    Question.find(self.id + 1)
+     Question.find_by(id: self.id + 1)
   end
   def prev_question
     Question.find(self.id - 1)
