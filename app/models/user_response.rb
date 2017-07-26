@@ -3,7 +3,7 @@ class UserResponse < ApplicationRecord
   belongs_to :question
 
   def skip_question(question, section)
-    until question.next_question != section
+    until question.section != section
       question = question.next_question
     end
     question
@@ -14,7 +14,7 @@ class UserResponse < ApplicationRecord
     question_to_return = self.question.next_question
 
     # section 2
-    responses_in_section_2 = self.user.user_responses.where(section: 2)
+    responses_in_section_2 = self.user.user_responses.where(question: Question.where(section: 2))
 
     ## any yes in section 2
     any_yes_in_2 = responses_in_section_2.any? do |user_response|

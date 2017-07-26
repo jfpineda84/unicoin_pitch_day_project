@@ -58,9 +58,9 @@ questions = [
 
     {position: 46, name: 'before_1994' , text: 'Were you born before January 1, 1994?', response_type: 'Multiple choice', section: 2},
     # this should be able to be answered by question 9
-    {position: 47, name: 'marital_status' , text: 'As of today, are you married? (Also answer "Yes" if you are separated but not divorced)', response_type: 'Multiple choice', section: 2},
+    {position: 47, name: 'independent_marital_status' , text: 'As of today, are you married? (Also answer "Yes" if you are separated but not divorced)', response_type: 'Multiple choice', section: 2},
     # this should be able to be answered by question 16
-    {position: 48, name: 'degree_option' , text: "At the beginning of the 2017-2018 school year, will you be working on a master's or doctorate program (such as an MA, MBA, MD, JD, PHD, EdD, graduate certificate, etc?)", response_type: 'Multiple choice', section: 2},
+    {position: 48, name: 'independent_degree_option' , text: "At the beginning of the 2017-2018 school year, will you be working on a master's or doctorate program (such as an MA, MBA, MD, JD, PHD, EdD, graduate certificate, etc?)", response_type: 'Multiple choice', section: 2},
     # this should be able to be answered by question 30
     {position: 49, name: 'active_military' , text: 'Are you currently serving on active duty in the US Armed Forces for purposes other than training?', response_type: 'Multiple choice', section: 2},
     {position: 50, name: 'veteran_status' , text: 'Are you a veteran of the US Armed Forces?', response_type: 'Multiple choice', section: 2},
