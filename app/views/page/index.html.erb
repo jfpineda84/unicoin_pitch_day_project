@@ -1,9 +1,13 @@
 <center><h1>Welcome, <%= current_user.name.capitalize %>!</center>
 
-<h2><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path %></h2>
-<h2><%= link_to 'Continue FAFSA', brand_new_path %></h2>
-<h2><%= link_to 'Update a saved FAFSA', user_responses_path %></h2>
+<h2><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></h2>
+
+<h2><%= link_to 'Continue FAFSA', brand_new_path if current_user.user_responses.count > 0 %></h2>
+
+<h2><%= link_to 'Update a saved FAFSA', user_responses_path if current_user.user_responses.count > 0 %></h2>
 
 
 
-<%= render 'user_responses/image_upload.html.erb', user_response: @user_response %>
+<%= render 'user_responses/image_upload.html.erb', user_response: @user_response if current_user.user_responses.count == 0 %>
+
+<%= console %>

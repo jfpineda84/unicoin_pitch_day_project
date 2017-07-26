@@ -1,4 +1,8 @@
+
 class UserResponsesController < ApplicationController
+
+  require "google/cloud/vision"
+
   before_action :set_user_response, only: [:show, :edit, :update, :destroy]
 
   # GET /user_responses
@@ -40,6 +44,8 @@ class UserResponsesController < ApplicationController
   # POST /user_responses.json
   def create
     @user_response = current_user.user_responses.new(user_response_params)
+
+
     # @user_response.user_id = params[:user_id]
     # @user_response.question_id = params[:question_id]
 
@@ -47,18 +53,18 @@ class UserResponsesController < ApplicationController
     # base on the question postions going be getting the next question
 
     respond_to do |format|
-      format.json {
-        render json: {
-          is_success: @user_response.save,
-          url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+        format.json {
+          render json: {
+            is_success: @user_response.save,
+            url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+          }
         }
-      }
-      format.html {
-        @user_response.save!
-        redirect_to new_user_response_path(question_id: @user_response.next_question.id)
-      }
+        format.html {
+          @user_response.save!
+          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
+        }
+      end
     end
-  end
 
   # PATCH/PUT /user_responses/1
   # PATCH/PUT /user_responses/1.json
@@ -84,6 +90,12 @@ class UserResponsesController < ApplicationController
     end
   end
 
+  def image_upload
+    user_response = UserResponse.new(user_response_params)
+    process_image(user_response)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_response
@@ -99,6 +111,8 @@ class UserResponsesController < ApplicationController
       vision = Google::Cloud::Vision.new project: "silent-bird-174423"#, keyfile: :secret_key_base
 
       puts "*******????*****Send #{user_response.image_upload.url} to Google*******????*****"
+
+      url = user_response.image_upload.url.to_s
 
       image = vision.image_upload(url)
 
@@ -116,7 +130,7 @@ class UserResponsesController < ApplicationController
       @money_earned = text[30][0] # How much money did you earn? FAFSA# 39
       @gross_income = text[40][0] # Adjusted gross income? FAFSA# 36
       @income_tax = text[61][0]  # Income tax? FAFSA# 57
-      # byebug
+      byebug
     end
 
 end

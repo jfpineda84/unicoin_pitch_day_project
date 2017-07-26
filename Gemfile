@@ -67,3 +67,6 @@ gem "paperclip", "~> 5.1"
 
 # gem used alongside paperclipto connect to S3 amazon web services
 gem "aws-sdk", "~> 2.10"
+
+# Added at 2017-07-25 22:59:00 -0400 by juanfer:
+gem "google-cloud-vision", "~> 0.25.0"
