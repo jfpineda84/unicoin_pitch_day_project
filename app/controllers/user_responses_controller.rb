@@ -115,7 +115,11 @@ class UserResponsesController < ApplicationController
       image = vision.image Paperclip.io_adapters.for(user_response.image_upload).path
 
       text1 = image.text
-      text = text1.text.split("\n") #.zip
+      text = text1.text.split("\n")
+
+      p text
+
+byebug
 
       @ssn = text[9] # SS# FAFSA# 9
       @address = text[14] # Address FAFSA# 4
@@ -124,7 +128,7 @@ class UserResponsesController < ApplicationController
       @gross_income = text[40] # Adjusted gross income? FAFSA# 36
       @income_tax = text[61]  # Income tax? FAFSA# 57
 
-      byebug
-    end
+byebug
 
+    end
 end
