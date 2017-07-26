@@ -1,7 +1,12 @@
 <%= form_for(user_response, multipart: true) do |f| %>
-<div class="field">
-  <%= f.label :image_upload %>
-  <%= f.file_field :image_upload %>
-  <%#= image_tag @user_response.image_upload.url(:thumb) %>
-</div>
+
+  <div class="field">
+    <%= f.label :image_upload %>
+    <%= f.file_field :image_upload %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Evaluate Image', class: "submit" %>
+  </div>
+
 <% end %>
