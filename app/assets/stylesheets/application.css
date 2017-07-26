@@ -14,9 +14,48 @@
  *= require_tree .
  *= require_self
  */
+
 body {
-   background-color: lightblue;
+  font-family: 'Verdana';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica';
+}
+
+ #messages {
+   background-color: #e3f2fd;
  }
+
+ .logo {
+
+ }
+
+.homepage-login {
+width: 30%;
+height: auto;
+background-color: #e3f2fd;
+padding-bottom: 20px;
+padding-top: 1px;
+border-radius: 20px;
+}
+
+.homepage-login form, form label {
+  text-align: center;
+  font-weight: normal;
+  max-width: 100%;
+}
+
+
+.snail {
+  /*background-image: url("http://wagner.edu/campus-life/files/2012/12/Cover-Photo-2015.jpg");*/
+  background-image: url("http://mi.fancaps.net/Galleries/Monsters_University/Monsters_University_Screenshot_0370.jpg");
+   background-repeat: no-repeat!important;
+   background-position: center top!important;
+   height: auto;
+   width: 100%;
+ }
+
  #custom-bootstrap-menu.navbar-default .navbar-brand {
      color: rgba(255, 255, 255, 1);
  }
@@ -60,4 +99,12 @@ body {
  #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
  #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
      background-color: #2b2929;
+ }
+
+ @media only screen and (max-width: 600px) {
+     .homepage-login {
+         width: 80%;
+         margin-right: auto;
+         margin-left: auto;
+     }
  }

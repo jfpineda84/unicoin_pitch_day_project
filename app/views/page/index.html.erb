@@ -1,5 +1,21 @@
-<center><h1>Welcome, <%= current_user.name.capitalize %>!</center>
 
-<h2><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path %></h2>
-<h2><%= link_to 'Continue FAFSA', brand_new_path %></h2>
-<h2><%= link_to 'Update a saved FAFSA', user_responses_path %></h2>
+<center><h1>Welcome to Unicoin, <%= current_user.name.capitalize %>!</h1><h2>Your journey to paying for college starts here.</h2></center>
+
+<h3>STEP 1</h3>
+Sign up for your FSA ID.
+
+<h3>STEP 2</h3>
+Fill out our simplified FAFSA application.
+<h4><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path %></h4>
+<h4><%= link_to 'Continue FAFSA', brand_new_path %></h4>
+<h4><%= link_to 'Update a saved FAFSA', user_responses_path %></h4>
+
+
+<h3>STEP 3</h3>
+Upload pictures of your tax returns and your parents tax returns.
+
+<h4>STEP 4</h4>
+Verify that all of the information on your completed FAFSA is accurate.
+
+<h4>STEP 5</h4>
+Submit your completed FAFSA!

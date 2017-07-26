@@ -1,5 +1,18 @@
-<h1>Register</h1>
+<body class="snail">
+
+<center>
+<div class="logo">
+<%= image_tag("unicoinlatest.png") %>
+</div>
+</center>
+
+<center>
+<div class="homepage-login">
+<h2>Create an Account</h2>
 
 <%= render 'form', user: @user %>
 <!-- Changed the link tag below. -->
-<%= link_to 'Log In', login_path %>
+<%= link_to 'Already a member? Log in', login_path %>
+</div>
+</center>
+</body>

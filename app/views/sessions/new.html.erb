@@ -1,5 +1,13 @@
-<h1>Login</h1>
+<body class="snail">
+  <center>
+  <div class="logo">
+  <%= image_tag("unicoinlatest.png") %>
+  </div>
+</center>
 
+<center>
+  <div class="homepage-login">
+    <h1>Login</h1>
 <%= form_tag '/login' do %>
 
   <div class="field">
@@ -12,5 +20,7 @@
     <%= password_field_tag :password %>
   </div>
   <%= submit_tag "Login" %>
-
+</div>
 <% end %>
+</center>
+</body>

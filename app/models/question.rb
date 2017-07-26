@@ -2,6 +2,13 @@ class Question < ApplicationRecord
   belongs_to :form
   has_many :user_responses
 
+  def next_question
+    Question.find(self.id + 1)
+  end
+  def prev_question
+    Question.find(self.id - 1)
+  end
+
 CITIZENSHIP_ANSWERS = ["Yes, I am a US citizen (US National)", "No, but I am an eligible non-citizen", "No, I am not a citizen or an eligible non-citizen."]
 
 MARITAL_STATUS_ANSWERS = ["I am single", "I am married/remarried", "I am separated", "I am divorced or widowed"]
