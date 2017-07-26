@@ -62,8 +62,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Added at 2017-07-24 19:28:51 -0400 by juanfer:
-# gem "paperclip", "~> 5.1"
+# paperclip gem
+gem "paperclip", "~> 5.1"
 
-# Added at 2017-07-24 21:23:23 -0400 by juanfer:
-# gem "aws-sdk", "~> 2.10"
+# gem used alongside paperclipto connect to S3 amazon web services
+gem "aws-sdk", "~> 2.10"
+
+# Added at 2017-07-25 22:59:00 -0400 by juanfer:
+gem "google-cloud-vision", "~> 0.25.0"

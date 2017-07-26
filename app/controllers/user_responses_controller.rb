@@ -1,4 +1,7 @@
 class UserResponsesController < ApplicationController
+
+  # require "google/cloud/vision"
+
   before_action :set_user_response, only: [:show, :edit, :update, :destroy]
 
   # GET /user_responses
@@ -40,6 +43,8 @@ class UserResponsesController < ApplicationController
   # POST /user_responses.json
   def create
     @user_response = current_user.user_responses.new(user_response_params)
+
+
     # @user_response.user_id = params[:user_id]
     # @user_response.question_id = params[:question_id]
 
@@ -47,10 +52,15 @@ class UserResponsesController < ApplicationController
     # base on the question postions going be getting the next question
 
     respond_to do |format|
-      format.json {
-        render json: {
-          is_success: @user_response.save,
-          url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+        format.json {
+          render json: {
+            is_success: @user_response.save,
+            url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+          }
+        }
+        format.html {
+          @user_response.save!
+          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
         }
       }
       format.html {
@@ -62,7 +72,6 @@ class UserResponsesController < ApplicationController
         end
       }
     end
-  end
 
   # PATCH/PUT /user_responses/1
   # PATCH/PUT /user_responses/1.json
@@ -88,6 +97,14 @@ class UserResponsesController < ApplicationController
     end
   end
 
+  def image_upload
+    user_response = current_user.user_responses.new(user_response_params)
+    user_response.question = Question.take
+    user_response.save!
+    process_image(user_response)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_response
@@ -96,7 +113,29 @@ class UserResponsesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_response_params
-      params.require(:user_response).permit(:response, :user_id, :question_id)
+      params.require(:user_response).permit(:response, :user_id, :question_id, )
     end
 
+#     def process_image(user_response)
+#       vision = Google::Cloud::Vision.new project: "silent-bird-174423"#, keyfile: :secret_key_base
+#
+#       image = vision.image Paperclip.io_adapters.for(user_response.image_upload).path
+#
+#       text1 = image.text
+#       text = text1.text.split("\n")
+#
+#       p text
+#
+# byebug
+#
+#       @ssn = text[9] # SS# FAFSA# 9
+#       @address = text[14] # Address FAFSA# 4
+#       @city = text[18] # City information FAFSA# 5, 6, 7, 8
+#       @money_earned = text[30] # How much money did you earn? FAFSA# 39
+#       @gross_income = text[40] # Adjusted gross income? FAFSA# 36
+#       @income_tax = text[61]  # Income tax? FAFSA# 57
+#
+# byebug
+#
+#     end
 end
