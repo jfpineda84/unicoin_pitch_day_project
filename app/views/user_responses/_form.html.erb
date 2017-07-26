@@ -1,4 +1,6 @@
 <%= form_with(model: UserResponse.new, local: true) do |form| %>
+
+
     <% if user_response.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
