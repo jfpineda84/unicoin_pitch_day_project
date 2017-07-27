@@ -87,9 +87,6 @@ class UsersController < ApplicationController
     text1 = image.text
     text = text1.text.split("\n")
 
-    p text
-
-byebug
 
     # parsing data from GCVision as a static form
 
@@ -188,20 +185,19 @@ byebug
 
 
     keys = ['ssn', 'address', 'city', 'money_earned', 'gross income', 'income tax']
-    data = [get_ssn(text), get_address(text), get_city(text), get_money_earned(text), get_gross_income(text), get_income_tax(text)]
+    data = [get_ssn(text), get_address(text), get_city(text), get_money_earned(text), get_gross_income(text),
+    get_income_tax(text)]
+
     data_for_creation = Hash[keys.zip(data)]
     p data_for_creation
 
+byebug
 
-
-    ## code of how to implements
-
-    # ssn = text[9] # SS# FAFSA# 9
-    # UserResponse.create!(
-    #   question: Question.find_by(name: 'social')
-    #   response: ssn
-    #   user: user
-    # )
+    UserResponse.create!(
+      question: Question.find_by(name: 'social'),
+      response: data_for_creation["ssn"],
+      user: user
+    )
 
 byebug
   end
