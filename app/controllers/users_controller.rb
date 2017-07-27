@@ -91,13 +91,110 @@ class UsersController < ApplicationController
 
 byebug
 
+    # parsing data from GCVision as a static form
 
-    @address = text[14] # Address FAFSA# 4
-    @city = text[18] # City information FAFSA# 5, 6, 7, 8
-    @money_earned = text[30] # How much money did you earn? FAFSA# 39
-    @gross_income = text[40] # Adjusted gross income? FAFSA# 36
-    @income_tax = text[61]  # Income tax? FAFSA# 57
+    # @address = text[14] # Address FAFSA# 4
+    # @city = text[18] # City information FAFSA# 5, 6, 7, 8
+    # @money_earned = text[30] # How much money did you earn? FAFSA# 39
+    # @gross_income = text[40] # Adjusted gross income? FAFSA# 36
+    # @income_tax = text[61]  # Income tax? FAFSA# 57
 
+
+    # parsing data from GCVision as a flexible  form
+
+    def get_ssn(lines)
+      criteria = [
+        '\A\d{9}\z', # from beginning to end of string match 9 digits
+      ].map do |needle|
+        lines.select do |line|
+          /#{needle}/.match(line)
+        end
+      end.flatten.map do |item|
+        item
+      end.flatten.each do |item|
+        item
+      end[0]
+    end
+
+    def get_address(lines)
+      criteria = [
+        'Home address',
+      ].map do |needle|
+        lines.map.with_index do |line, i|
+          if /#{needle.downcase}/.match(line.downcase)
+            [line, lines[i + 1]]
+          end
+        end.compact
+      end.flatten(1).map do |item|
+        item.last
+      end.first
+    end
+
+    def get_city(lines)
+      criteria = [
+        'City',
+      ].map do |needle|
+        lines.map.with_index do |line, i|
+          if /#{needle.downcase}/.match(line.downcase)
+            [line, lines[i + 1]]
+          end
+        end.compact
+      end.flatten(1).map do |item|
+        item.last
+      end.first
+    end
+
+    def get_money_earned(lines)
+      criteria = [
+        'Income',
+      ].map do |needle|
+        lines.map.with_index do |line, i|
+          if /#{needle.downcase}/.match(line.downcase)
+            [line, lines[i + 1]]
+          end
+        end.compact
+      end.flatten(1).map do |item|
+        item.last
+      end[1]
+    end
+
+    def get_gross_income(lines)
+      criteria = [
+        'payment.',
+      ].map do |needle|
+        lines.map.with_index do |line, i|
+          if /#{needle.downcase}/.match(line.downcase)
+            [line, lines[i + 1]]
+          end
+        end.compact
+      end.flatten(1).map do |item|
+        item.last
+      end.first
+    end
+
+    def get_income_tax(lines)
+      criteria = [
+        'table in the',
+      ].map do |needle|
+        lines.map.with_index do |line, i|
+          if /#{needle.downcase}/.match(line.downcase)
+            [line, lines[i + 1]]
+          end
+        end.compact
+      end.flatten(1).map do |item|
+        item.last
+      end[0]
+    end
+
+
+    keys = ['ssn', 'address', 'city', 'money_earned', 'gross income', 'income tax']
+    data = [get_ssn(text), get_address(text), get_city(text), get_money_earned(text), get_gross_income(text), get_income_tax(text)]
+    data_for_creation = Hash[keys.zip(data)]
+    p data_for_creation
+
+
+
+    ## code of how to implements
 
     # ssn = text[9] # SS# FAFSA# 9
     # UserResponse.create!(
