@@ -37,7 +37,8 @@
    background-repeat: no-repeat;
    height: auto;
    width: 100%;
-   background-position: 70% 50%;
+   background-position: 70% 80%;
+   background-attachment: fixed;
  }
 
  .index-page h1, h2 {
