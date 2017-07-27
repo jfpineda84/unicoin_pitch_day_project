@@ -20,16 +20,17 @@
    height: auto;
    margin-right: 5%;
    margin-top: 15px;
-   border-width: 3px;
-   border-color: white;
+   border-width: 1px;
+   border-color: grey;
    border-style: solid;
    padding: 15px;
    float: right;
    clear: both;
+   background-color: #e3f2fd;
  }
 
  .fafsa-steps h3, h4, h5 {
-   color: white;
+
  }
 
  .index-page {
@@ -96,7 +97,8 @@ border-radius: 20px;
   /*background-image: url("http://wagner.edu/campus-life/files/2012/12/Cover-Photo-2015.jpg");*/
   background-image: url("http://mi.fancaps.net/Galleries/Monsters_University/Monsters_University_Screenshot_0370.jpg");
    background-repeat: no-repeat!important;
-   background-position: center top!important;
+   background-position: 30% 80%!important;
+   background-attachment: fixed;
    height: auto;
    width: 100%;
  }
