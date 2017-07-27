@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   end
 
   def process_image(user)
-    vision = Google::Cloud::Vision.new project: "silent-bird-174423"#, keyfile: :secret_key_base
+    vision = Google::Cloud::Vision.new project: "PROJECT_ID"#, keyfile: :secret_key_base
 
     image = vision.image Paperclip.io_adapters.for(user.image_upload).path
 
