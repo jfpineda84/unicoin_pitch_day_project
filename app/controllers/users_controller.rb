@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   end
 
   def process_image(user)
-    vision = Google::Cloud::Vision.new project: "silent-bird-174423"#, keyfile: :secret_key_base
+    vision = Google::Cloud::Vision.new project: "PROJECT_ID" #, keyfile: :secret_key_base
 
     image = vision.image Paperclip.io_adapters.for(user.image_upload).path
 
@@ -91,18 +91,20 @@ class UsersController < ApplicationController
 
 byebug
 
-    # ssn = text[9] # SS# FAFSA# 9
-    # UserResponse.create!(
-    #   question: Question.find_by(name: 'social')
-    #   response: ssn
-    #   user: user
-    # )
 
     @address = text[14] # Address FAFSA# 4
     @city = text[18] # City information FAFSA# 5, 6, 7, 8
     @money_earned = text[30] # How much money did you earn? FAFSA# 39
     @gross_income = text[40] # Adjusted gross income? FAFSA# 36
     @income_tax = text[61]  # Income tax? FAFSA# 57
+
+
+    # ssn = text[9] # SS# FAFSA# 9
+    # UserResponse.create!(
+    #   question: Question.find_by(name: 'social')
+    #   response: ssn
+    #   user: user
+    # )
 
 byebug
   end
