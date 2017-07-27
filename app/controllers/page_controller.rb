@@ -1,11 +1,11 @@
 class PageController < ApplicationController
   def index
     @user_response = UserResponse.new
-    redirect_to register_path if session[:user_id].nil?
+    redirect_to login_path if session[:user_id].nil?
   end
 
   def live_chat
-    redirect_to register_path if session[:user_id].nil?
+    redirect_to login_path if session[:user_id].nil?
   end
 
   def secret
