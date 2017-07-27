@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :user_responses
   resources :questions
   resources :forms
-  root 'sessions#new'
+  root 'page#index'
 
   get '/live_chat' => 'page#live_chat'
   get '/secret' => 'page#secret'
