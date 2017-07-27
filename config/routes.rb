@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :forms
   root 'page#index'
 
+  get '/myfafsa' => 'forms#generate_pdf'
   get '/live_chat' => 'page#live_chat'
   get '/secret' => 'page#secret'
   get '/about_us' => 'page#about_us'

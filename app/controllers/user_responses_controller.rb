@@ -56,10 +56,10 @@ class UserResponsesController < ApplicationController
       }
       format.html {
         @user_response.save!
-        unless @user_response.next_question.nil?
-          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
+        if @user_response.next_question.nil?
+          redirect_to root_path, notice: "You're done!" # application is done!
         else
-
+          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
         end
       }
     end
