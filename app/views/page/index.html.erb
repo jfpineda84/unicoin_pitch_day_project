@@ -1,25 +1,36 @@
-
+<body class="index-page">
 <center><h1>Welcome to Unicoin,
     <%= current_user.name.capitalize %>!</h1>
-    <h2>Your journey to paying for college starts here.</h2>
 </center>
 
+<div class="fafsa-steps">
 <h3>STEP 1</h3>
 Sign up for your FSA ID.
+</div>
 
+<div class="fafsa-steps">
 <h3>STEP 2</h3>
 Fill out our simplified FAFSA application.
 
-  <h2><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></h2>
-  <h2><%= link_to 'Continue FAFSA', brand_new_path if current_user.user_responses.count > 0 %></h2>
-  <h2><%= link_to 'Update a saved FAFSA', user_responses_path if current_user.user_responses.count > 0 %></h2>
+  <h4><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></h4>
+  <h4><%= link_to 'Continue FAFSA', brand_new_path if current_user.user_responses.count > 0 %></h4>
+  <h4><%= link_to 'Update a saved FAFSA', user_responses_path if current_user.user_responses.count > 0 %></h4>
+</div>
 
+<div class="fafsa-steps">
 <h3>STEP 3</h3>
 Upload pictures of your tax returns and your parents tax returns.
   <%= render 'users/image_upload', user: current_user %>
+</div>
 
-<h4>STEP 4</h4>
+<div class="fafsa-steps">
+<h3>STEP 4</h3>
 Verify that all of the information on your completed FAFSA is accurate.
+</div>
 
-<h4>STEP 5</h4>
+<div class="fafsa-steps">
+<h3>STEP 5</h3>
 Submit your completed FAFSA!
+</div>
+</div>
+</div>

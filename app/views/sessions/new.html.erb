@@ -7,7 +7,7 @@
 
 <center>
   <div class="homepage-login">
-    <h1>Login</h1>
+    <h1 style="font-family: American Typewriter">Member Login</h1>
 <%= form_tag '/login' do %>
 
   <div class="field">
@@ -19,8 +19,10 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Login" %><br><br>
+  <%= link_to "Don't have an account? Sign up!", register_path %>
 </div>
+
 <% end %>
 </center>
 </body>

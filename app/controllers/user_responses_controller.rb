@@ -18,6 +18,7 @@ class UserResponsesController < ApplicationController
       @question = Question.find(@user_response.question.id)
       # render :partial => 'user_responses/brand_new_form', locals: {user_response: @user_response}
     end
+
   end
 
   # GET /user_responses/new
