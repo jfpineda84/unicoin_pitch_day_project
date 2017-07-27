@@ -3,7 +3,7 @@ class UserResponse < ApplicationRecord
   belongs_to :question
 
   def skip_question(question, section)
-    until question.section != section
+    until question.nil? or question.section != section
       question = question.next_question
     end
     question

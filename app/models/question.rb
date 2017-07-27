@@ -5,6 +5,7 @@ class Question < ApplicationRecord
   def next_question
      Question.find_by(id: self.id + 1)
   end
+  
   def prev_question
     Question.find(self.id - 1)
   end

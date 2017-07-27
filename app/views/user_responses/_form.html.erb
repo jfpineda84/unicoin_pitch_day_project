@@ -1,6 +1,5 @@
+<div class="form-container">
 <%= form_with(model: UserResponse.new, local: true) do |form| %>
-
-
     <% if user_response.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
@@ -15,7 +14,8 @@
 
   <center>
     <div class="field">
-      <%= label_tag @question.text %>
+      <h2><%= @current_section %></h2>
+      <h3><%= label_tag @question.text %><br></h3>
       <% response_type = @question.response_type  %>
       <% if response_type == "String" %>
       <%= form.text_field :response, id: :user_response_response %>
@@ -39,3 +39,4 @@
     </div>
   </center>
   <% end %>
+</div>
