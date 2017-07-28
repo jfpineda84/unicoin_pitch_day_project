@@ -1,20 +1,20 @@
-// // This is a manifest file that'll be compiled into application.js, which will include all the files
-// // listed below.
-// //
-// // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// // vendor/assets/javascripts directory can be referenced here using a relative path.
-// //
-// // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// // compiled file. JavaScript code in this file should be added after the last require_* statement.
-// //
-// // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// // about supported directives.
-// //
-// //= require rails-ujs
-// //= require jquery/dist/jquery.min
-// //= require bootstrap/dist/js/bootstrap
-// //= require turbolinks
-// //= require_tree .
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
+// vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file. JavaScript code in this file should be added after the last require_* statement.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require rails-ujs
+//= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require turbolinks
+//= require_tree .
 
 jQuery(function($) {'use strict';
 
@@ -22,17 +22,17 @@ jQuery(function($) {'use strict';
 
 $('li.dropdown').find('.fa-angle-down').each(function(){
 
-$(this).on('click', function(){
+  $(this).on('click', function(){
 
-if( $(window).width() < 768 ) {
+    if( $(window).width() < 768 ) {
 
-$(this).parent().next().slideToggle();
+      $(this).parent().next().slideToggle();
 
-}
+    }
 
-return false;
+    return false;
 
-});
+  });
 
 });
 
@@ -40,7 +40,7 @@ return false;
 
 if( $('#video-container').length ) {
 
-$("#video-container").fitVids();
+  $("#video-container").fitVids();
 
 }
 
@@ -52,47 +52,47 @@ new WOW().init();
 
 $(window).load(function(){
 
-$('.main-slider').addClass('animate-in');
+  $('.main-slider').addClass('animate-in');
 
-$('.preloader').remove();
+  $('.preloader').remove();
 
-//End Preloader
+  //End Preloader
 
-if( $('.masonery_area').length ) {
+  if( $('.masonery_area').length ) {
 
-$('.masonery_area').masonry();//Masonry
+    $('.masonery_area').masonry();//Masonry
 
-}
+  }
 
-var $portfolio_selectors = $('.portfolio-filter >li>a');
+  var $portfolio_selectors = $('.portfolio-filter >li>a');
 
-if($portfolio_selectors.length) {
+  if($portfolio_selectors.length) {
 
-var $portfolio = $('.portfolio-items');
+    var $portfolio = $('.portfolio-items');
 
-$portfolio.isotope({
+    $portfolio.isotope({
 
-itemSelector : '.portfolio-item',
+      itemSelector : '.portfolio-item',
 
-layoutMode : 'fitRows'
+      layoutMode : 'fitRows'
 
-});
+    });
 
-$portfolio_selectors.on('click', function(){
+    $portfolio_selectors.on('click', function(){
 
-$portfolio_selectors.removeClass('active');
+      $portfolio_selectors.removeClass('active');
 
-$(this).addClass('active');
+      $(this).addClass('active');
 
-var selector = $(this).attr('data-filter');
+      var selector = $(this).attr('data-filter');
 
-$portfolio.isotope({ filter: selector });
+      $portfolio.isotope({ filter: selector });
 
-return false;
+      return false;
 
-});
+    });
 
-}
+  }
 
 });
 
@@ -100,19 +100,18 @@ $('.timer').each(count);
 
 function count(options) {
 
-var $this = $(this);
+  var $this = $(this);
 
-options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+  options = $.extend({}, options || {}, $this.data('countToOptions') || {});
 
-$this.countTo(options);
-
+  $this.countTo(options);
 }
 
 // Search
 
 $('.fa-search').on('click', function() {
 
-$('.field-toggle').fadeToggle(200);
+  $('.field-toggle').fadeToggle(200);
 
 });
 
@@ -122,25 +121,25 @@ var form = $('#main-contact-form');
 
 form.submit(function(event){
 
-event.preventDefault();
+  event.preventDefault();
 
-var form_status = $('<div class="form_status"></div>');
+  var form_status = $('<div class="form_status"></div>');
 
-$.ajax({
+  $.ajax({
 
-url: $(this).attr('action'),
+    url: $(this).attr('action'),
 
-beforeSend: function(){
+    beforeSend: function(){
 
-form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
+      form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email is sending...</p>').fadeIn() );
 
-}
+    }
 
-}).done(function(data){
+  }).done(function(data){
 
-form_status.html('<p class="text-success">' + data.message + '</p>').delay(3000).fadeOut();
+    form_status.html('<p class="text-success">' + data.message + '</p>').delay(3000).fadeOut();
 
-});
+  });
 
 });
 
@@ -148,55 +147,55 @@ form_status.html('<p class="text-success">' + data.message + '</p>').delay(3000)
 
 $.each($('div.progress-bar'),function(){
 
-$(this).css('width', $(this).attr('data-transition')+'%');
+  $(this).css('width', $(this).attr('data-transition')+'%');
 
 });
 
 if( $('#gmap').length ) {
 
-var map;
+  var map;
 
-map = new GMaps({
+  map = new GMaps({
 
-el: '#gmap',
+    el: '#gmap',
 
-lat: 43.04446,
+    lat: 43.04446,
 
-lng: -76.130791,
+    lng: -76.130791,
 
-scrollwheel:false,
+    scrollwheel:false,
 
-zoom: 16,
+    zoom: 16,
 
-zoomControl : false,
+    zoomControl : false,
 
-panControl : false,
+    panControl : false,
 
-streetViewControl : false,
+    streetViewControl : false,
 
-mapTypeControl: false,
+    mapTypeControl: false,
 
-overviewMapControl: false,
+    overviewMapControl: false,
 
-clickable: false
+    clickable: false
 
-});
+  });
 
-map.addMarker({
+  map.addMarker({
 
-lat: 43.04446,
+    lat: 43.04446,
 
-lng: -76.130791,
+    lng: -76.130791,
 
-animation: google.maps.Animation.DROP,
+    animation: google.maps.Animation.DROP,
 
-verticalAlign: 'bottom',
+    verticalAlign: 'bottom',
 
-horizontalAlign: 'center',
+    horizontalAlign: 'center',
 
-backgroundColor: '#3e8bff',
+    backgroundColor: '#3e8bff',
 
-});
+  });
 
 }
 
