@@ -9,16 +9,18 @@ class TokensController < ApplicationController
   end
 
   def create
-    grant = get_grant
-    token = Twilio::JWT::AccessToken.new(
-            ENV['ACCOUNT_SID'],
-            ENV['API_KEY_SID'],
-            ENV['API_KEY_SECRET'],
-            [grant],
-            identity: current_user.name);
+    if !!current_user
+      grant = get_grant
+      token = Twilio::JWT::AccessToken.new(
+      ENV['ACCOUNT_SID'],
+      ENV['API_KEY_SID'],
+      ENV['API_KEY_SECRET'],
+      [grant],
+      identity: current_user.name);
 
-    token.add_grant(grant)
-    render json: {username: current_user.name, token: token.to_jwt}
+      token.add_grant(grant)
+      render json: {username: current_user.name, token: token.to_jwt}
+    end
   end
 
 end

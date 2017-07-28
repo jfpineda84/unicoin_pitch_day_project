@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to register_path
+      render 'users/new', alert: "User could not be created. Please make sure password and password confirmation match."
     end
   end
   # PATCH/PUT /users/1

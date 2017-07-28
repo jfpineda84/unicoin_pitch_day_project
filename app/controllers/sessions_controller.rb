@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       # If user's login doesn't work, send them back to the login form.
-      redirect_to login_path
+      flash[:alert] = "Login failed. Please check your login credentials."
+      render 'sessions/new'
     end
   end
 
