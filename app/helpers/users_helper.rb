@@ -17,16 +17,15 @@ module UsersHelper
     text = text1.text.split("\n")
 
     # keys created for the hash
-    keys = ['ssn', 'address', 'city', 'money_earned', 'gross_income', 'income_tax']
+    keys = ['ssn', 'address', 'city', 'state', 'zip_code', 'money_earned', 'gross income', 'income tax']
 
     # Values of the keys above
-    data = [get_ssn(text), get_address(text), get_city(text), get_money_earned(text), get_gross_income(text),
-    get_income_tax(text)]
+    data = [get_ssn(text), get_address(text), get_city(text), get_state(text), get_zip_code(text), get_money_earned(text), get_gross_income(text), get_income_tax(text)]
 
     # creation of the keys and values into a hash
     data_for_creation = Hash[keys.zip(data)]
-    p data_for_creation
 
+    p data_for_creation
 
     # these calls create the
     UserResponse.create!(
@@ -42,6 +41,16 @@ module UsersHelper
     UserResponse.create!(
       question: Question.find_by(name: 'city'),
       response: data_for_creation["city"],
+      user: user
+    )
+    UserResponse.create!(
+      question: Question.find_by(name: 'state'),
+      response: data_for_creation["state"],
+      user: user
+    )
+    UserResponse.create!(
+      question: Question.find_by(name: 'zip_code'),
+      response: data_for_creation["zip_code"],
       user: user
     )
     UserResponse.create!(
@@ -62,6 +71,7 @@ module UsersHelper
   end
 
   # string interpolation for sorting through data based on repsonse needs
+
 
   def get_ssn(lines)
     criteria = [
@@ -102,40 +112,40 @@ module UsersHelper
       end.compact
     end.flatten(1).map do |item|
       item.last
-    end.first
+    end.first.split(" ")[0]
+  end
+
+  def get_state(lines)
+    criteria = [
+      'City',
+    ].map do |needle|
+      lines.map.with_index do |line, i|
+        if /#{needle.downcase}/.match(line.downcase)
+          [line, lines[i + 1]]
+        end
+      end.compact
+    end.flatten(1).map do |item|
+      item.last
+    end.first.split(" ")[1]
+  end
+
+  def get_zip_code(lines)
+    criteria = [
+      'City',
+    ].map do |needle|
+      lines.map.with_index do |line, i|
+        if /#{needle.downcase}/.match(line.downcase)
+          [line, lines[i + 1]]
+        end
+      end.compact
+    end.flatten(1).map do |item|
+      item.last
+    end.first.split(" ")[2]
   end
 
   def get_money_earned(lines)
     criteria = [
-      'Income',
-    ].map do |needle|
-      lines.map.with_index do |line, i|
-        if /#{needle.downcase}/.match(line.downcase)
-          [line, lines[i + 1]]
-        end
-      end.compact
-    end.flatten(1).map do |item|
-      item.last
-    end[1]
-  end
-
-  def get_gross_income(lines)
-    criteria = [
-      'payment.',
-    ].map do |needle|
-      lines.map.with_index do |line, i|
-        if /#{needle.downcase}/.match(line.downcase)
-          [line, lines[i + 1]]
-        end
-      end.compact
-    end.flatten(1).map do |item|
-      item.last
-    end.first
-  end
-
-  def get_income_tax(lines)
-    criteria = [
-      'table in the',
+      'Attach',
     ].map do |needle|
       lines.map.with_index do |line, i|
         if /#{needle.downcase}/.match(line.downcase)
@@ -145,6 +155,34 @@ module UsersHelper
     end.flatten(1).map do |item|
       item.last
     end[0]
+  end
+
+  def get_gross_income(lines)
+    criteria = [
+      'payment.',
+    ].map do |needle|
+      lines.map.with_index do |line, i|
+        if /#{needle.downcase}/.match(line.downcase)
+          [line, lines[i + 2]]
+        end
+      end.compact
+    end.flatten(1).map do |item|
+      item.last
+    end.first.split(" ")[1]
+  end
+
+  def get_income_tax(lines)
+    criteria = [
+      'If Form 8888',
+    ].map do |needle|
+      lines.map.with_index do |line, i|
+        if /#{needle.downcase}/.match(line.downcase)
+          [line, lines[i + 2]]
+        end
+      end.compact
+    end.flatten(1).map do |item|
+      item.last
+    end.first.split(" ")[1]
   end
 
 end
