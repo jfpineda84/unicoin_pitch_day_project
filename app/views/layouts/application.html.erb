@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width">
 </head>
-<body>
+<body class="<%= controller.controller_name %>">
 
   <div id="custom-bootstrap-menu" class="navbar navbar-light" style="background-color: #e3f2fd;" role="navigation">
       <div class="container-fluid">
@@ -48,7 +48,7 @@
   </div>
 <% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
