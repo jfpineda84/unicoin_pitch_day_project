@@ -5,7 +5,7 @@ module UsersHelper
   def process_image(user)
 
     # Google vision API
-    vision = Google::Cloud::Vision.new project: "PROJECT_ID"
+    vision = Google::Cloud::Vision.new project: ENV['PROJECT_ID']
 
     # used to convert S3 image content, pulled down my comp temp folder and converted to a path to be sent to google API
     image = vision.image Paperclip.io_adapters.for(user.image_upload).path
