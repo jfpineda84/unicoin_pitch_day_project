@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726215516) do
+ActiveRecord::Schema.define(version: 20170728220600) do
 
   create_table "forms", force: :cascade do |t|
     t.string "form"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20170726215516) do
     t.string "image_upload_content_type"
     t.integer "image_upload_file_size"
     t.datetime "image_upload_updated_at"
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
   end
 
 end
