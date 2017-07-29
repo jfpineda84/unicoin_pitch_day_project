@@ -164,7 +164,7 @@ questions = [
   {position: 45, name: 'pension_and_retirement' , text: "Payments to tax-deferred pension and retirement savings plans (paid directly or withheld from earnings), including, but not limited to, amounts reported on the W-2 forms in Boxes 12a through 12d, codes D, E, F, G, H and S. Don't include amounts reported in code DD (employer contributions toward employee health benefits).", response_type: 'Integer', section: 6},
   {position: 45, name: 'ira_money' , text: 'IRA deducations and payments to self-employed SEP, SIMPLE, Keogh and other qualified plans fromIRS Form 1040 - line 28 + line 32 or 1040A - line 17.', response_type: 'Integer', section: 6},
   {position: 45, name: 'tax_exempt_income' , text: 'Tax exempt interest income from IRS Form 1040 - line 8b or 1040A - line 8b', response_type: 'Integer', section: 6},
-  {position: 45, name: 'untaxed_distributions' , text: 'Untaxed portions of distributions from IRS Form 1040 - lines (15a minus 15b) or 1040A - lines (11a minus 11b). Exclude rollovers. If negative, enter a zero here.', response_type: 'Integer', section: 6},
+  {position: 45, name: 'untaxed_distributions' , text: 'Untaxed portions of IRA distributions from IRS Form 1040 - lines (15a minus 15b) or 1040A - lines (11a minus 11b). Exclude rollovers. If negative, enter a zero here.', response_type: 'Integer', section: 6},
   {position: 45, name: 'untaxed_pensions' , text: 'Untaxed portions of pensions from IRS Form 1040 - lines (16a minus 16b) or 1040A - lines (12a minus 12b). Exclude rollovers. If negative, enter a zero here.', response_type: 'Integer', section: 6},
 
 
