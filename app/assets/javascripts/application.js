@@ -295,3 +295,12 @@ getResponse = function() {
   if($("#user_response_response").length) return $("#user_response_response").val();
   if($('input[type="radio"]:checked').length) return $('input[type="radio"]:checked').val();
 }
+
+$(document).on('turbolinks:load', function(){
+    setTimeout(function(){
+      $('#slide-in').toggleClass('show');
+    }, 1000);
+    setTimeout(function(){
+      $('#slide-in-left').toggleClass('show');
+    }, 1000);
+});
