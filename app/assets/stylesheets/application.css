@@ -1,31 +1,32 @@
 /*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
-* listed below.
-*
-* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
-* vendor/assets/stylesheets directory can be referenced here using a relative path.
-*
-* You're free to add application-wide styles to this file and they'll appear at the bottom of the
-* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
-* files in this directory. Styles in this file should be added after the last require_* statement.
-* It is generally better to create a new file per style scope.
-*
-*= require bootstrap/dist/css/bootstrap.min
-*= require_tree .
-*= require_self
-*/
-
-
-/*fonts styles and size*/
-
-a, h1, h3, h4 {
-  font-family: 'Source Sans Pro', sans-serif;
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+.row {
+  margin: 0;
 }
-/*fonts styles and size*/
 
+ .panel {
+   width: 40%;
+   float: right;
+   clear: right;
+   background-color: bhsla(120, 100%, 50%, 0.5);
+   margin-right: 5%;
+ }
 
-/*header styling*/
-.navigation-bar {
+ .navigation-bar {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -33,20 +34,17 @@ a, h1, h3, h4 {
   width: 100%;
 }
 
-
-.logo img {
-  max-height: 200px;
-  margin-bottom: 20px;
-      margin-top: 76px;
+ .logo img {
+ max-height: 200px;
+ margin-bottom: 20px;
+ margin-top: 75px;
 }
-/*login css effects*/
 
-
-#slide-in {
-  width: 100%;
-  transition: all .75s ease;
-  position: relative;
-  right: -884px;
+ #slide-in {
+   width: 100%;
+   transition: all .75s ease;
+   position: relative;
+   right: -884px;
 }
 
 #slide-in.show {
@@ -65,6 +63,39 @@ a, h1, h3, h4 {
 }
 /*end of log in css effects */
 
+ .fafsa-steps {
+   width: 40%;
+   height: auto;
+   margin-right: 5%;
+   margin-top: 15px;
+   border-width: 1px;
+   border-color: grey;
+   border-style: solid;
+   border-radius: 20px;
+   padding: 15px;
+   float: right;
+   clear: both;
+   background-color: #e3f2fd;
+ }
+
+ .fafsa-steps h1, h2, h3, h4 {
+   font-weight: bolder;
+ }
+
+
+ .form-container {
+   width: 40%;
+   margin-right: auto;
+   margin-left: auto;
+   font-weight: bold;
+   border-width: 1px;
+   border-color: black;
+   border-style: solid;
+   padding: 15px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   border-radius: 20px;
+ }
 
 #messages {
   background-color: #e3f2fd;

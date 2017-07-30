@@ -47,22 +47,22 @@ class UserResponsesController < ApplicationController
     # @question = # you need to find the question base on the question_id
     # base on the question postions going be getting the next question
 
-    respond_to do |format|
-      format.json {
-        render json: {
-          is_success: @user_response.save,
-          url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
-        }
-      }
-      format.html {
+    # respond_to do |format|
+    #   format.json {
+    #     render json: {
+    #       is_success: @user_response.save,
+    #       url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+    #     }
+    #   }
+      # format.html {
         @user_response.save!
         if @user_response.next_question.nil?
           redirect_to root_path, notice: "You're done!" # application is done!
         else
-          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
+          render new_user_response_path(question_id: @user_response.next_question.id.to_i)
         end
-      }
-    end
+      # }
+    # end
   end
 
   # PATCH/PUT /user_responses/1

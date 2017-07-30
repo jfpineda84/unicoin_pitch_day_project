@@ -1,49 +1,15 @@
+<<<<<<< HEAD
 <div class="index">
-  <div class="header">
-    <h1>Welcome to Unicoin <%= current_user.name.capitalize %>!</h1>
-  </div>
-  <!-- end of main header -->
-
-  <div class="body">
-
-    <div class="fafsa-steps">
-      <h3>STEP 1</h3>
-      <h4>Sign up for your FSA ID.</h4>
-    </div>
-
-    <div class="fafsa-steps">
-      <h3>STEP 2</h3>
-      <h4>Fill out our simplified FAFSA application.</h4>
-
-
-      <h4><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></h4>
-      <h4><%= link_to 'Continue FAFSA', brand_new_path if current_user.user_responses.count > 0 %></h4>
-      <h4><%= link_to 'Update a saved FAFSA', user_responses_path if current_user.user_responses.count > 0 %></h4>
-    </div>
-
-    <div class="fafsa-steps">
-      <h3>STEP 3</h3>
-      <h4>Upload pictures of your tax returns and your parents tax returns.</h4>
-      <%= render 'users/image_upload', user: current_user %>
-    </div>
-
-    <div class="fafsa-steps">
-      <h3>STEP 4</h3>
-      <% if current_user.image_upload.exists? %>
-      <%= link_to "View my completed FAFSA", "/#{current_user.id}_fafsa.pdf" %>
-      <% else %>
-      Yer not dun yet!
-      <% end %>
-    </div>
-
-    <div class="fafsa-steps">
-      <h3>STEP 5</h3>
-      <h4>Submit your completed FAFSA!</h4>
-    </div>
-
-  </div>
-  <!-- end of body -->
+||||||| merged common ancestors
+<<<<<<< HEAD
+<div class="main-wrap">
 =======
+<<<<<<< HEAD
+<body class="index">
+<center><h1 class="index-welcome">Welcome to Unicoin,
+    <%= current_user.name.capitalize %>!</h1>
+=======
+<<<<<<< HEAD
 <body class="index-page">
 <center><h1>Welcome to Unicoin,
     <%= current_user.name.capitalize %>!</h1>
@@ -77,6 +43,97 @@
   Your completed FAFSA will
 <% end %>
 </div>
+=======
+<div class="main-wrap">
+>>>>>>> f9660ba93f3653645649bfcc779b421a96fade9e
+  <div class="header">
+    <h1>Welcome to Unicoin <%= current_user.name.capitalize %>!</h1>
+  </div>
+  <!-- end of main header -->
+
+  <div class="body">
+
+    <div class="fafsa-steps">
+      <h3>STEP 1</h3>
+      <h4>Sign up for your FSA ID.</h4>
+    </div>
+
+    <div class="fafsa-steps">
+      <h3>STEP 2</h3>
+      <h4>Fill out our simplified FAFSA application.</h4>
+
+
+      <h4><%= link_to 'Start a new 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></h4>
+      <h4><%= link_to 'Continue FAFSA', brand_new_path if current_user.user_responses.count > 0 %></h4>
+      <h4><%= link_to 'Update a saved FAFSA', user_responses_path if current_user.user_responses.count > 0 %></h4>
+    </div>
+
+    <div class="fafsa-steps">
+      <h3>STEP 3</h3>
+      <h4>Upload pictures of your tax returns and your parents tax returns.</h4>
+      <%= render 'users/image_upload', user: current_user %>
+    </div>
 >>>>>>> cecesbranch
 
+</center>
+
+<<<<<<< HEAD
+    <div class="fafsa-steps">
+      <h3>STEP 5</h3>
+      <h4>Submit your completed FAFSA!</h4>
+    </div>
+||||||| merged common ancestors
+    <div class="fafsa-steps">
+      <h3>STEP 5</h3>
+      Submit your completed FAFSA!
+    </div>
+=======
+>>>>>>> f9660ba93f3653645649bfcc779b421a96fade9e
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">STEP 1: Complete our simplified 2017-2018 FAFSA application.</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <!-- <li><%#= link_to 'Start your 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></li> -->
+        <li><%= link_to 'Start your 2017-2018 FAFSA', new_user_response_path, remote: true %></li>
+      <!-- <li><%#= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path if current_user.user_responses.count > 0 %></li> -->
+        <li><%= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path, remote: true %></li>
+      <!-- <li><%#= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path if current_user.user_responses.count > 0 %></li> -->
+        <li><%= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path, remote: true %></li>
+    </ul>
+  </div>
+<<<<<<< HEAD
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">STEP 2: Upload a photo of your 2015 or 2016 tax returns.</h3>
+  </div>
+  <div class="panel-body">
+    <%= render 'users/image_upload', user: current_user %>
+  </div>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">STEP 3: View and print your completed FAFSA.</h3>
+  </div>
+  <div class="panel-body">
+    <% if current_user.image_upload.exists? %>
+      <%= link_to "View my completed FAFSA", "/#{current_user.id}_fafsa.pdf" %>
+    <% else %>
+      Your completed FAFSA will appear once you have completed steps 1 and 2.
+    <% end %>
+  </div>
+</div>
+
+</div>
+=======
+  <!-- end of body -->
+>>>>>>> 6528881e274c5591e708d6722bb0925fe28c7702
+>>>>>>> cecesbranch
+
+<div class="fafsa-display-modal">
 </div>
