@@ -230,7 +230,7 @@
   }
 
   #header .navbar-inverse .navbar-toggle:hover .icon-bar {
-    background: #fff;
+    /*background: #fff;*/
   }
 
   .navbar-inverse .navbar-collapse,
