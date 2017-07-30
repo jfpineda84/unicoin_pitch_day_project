@@ -24,13 +24,15 @@ class UserResponsesController < ApplicationController
   # GET /user_responses/new
   def new
     @user_response = UserResponse.new
-
+    puts "hereeeeeeeee "
     if params[:question_id].present?
       @question = Question.find(params[:question_id])
         # render :partial => 'user_responses/form', locals: {user_response: @user_response}
     else
       @question = Question.first
     end
+
+    raise "You don't have any question" if @question.nil?
   end
 
   # GET /user_responses/1/edit
@@ -47,25 +49,37 @@ class UserResponsesController < ApplicationController
     # @question = # you need to find the question base on the question_id
     # base on the question postions going be getting the next question
 
-    # respond_to do |format|
-    #   format.json {
-    #     render json: {
-    #       is_success: @user_response.save,
-    #       url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
-    #     }
-    #   }
-      # format.html {
+    respond_to do |format|
+      format.json {
+        render json: {
+          is_success: @user_response.save,
+          url: new_user_response_path(:question_id => @user_response.question_id.to_i + 1)
+        }
+      }
+      format.html {
         @user_response.save!
         if @user_response.next_question.nil?
           redirect_to root_path, notice: "You're done!" # application is done!
         else
-          # respond_to do |format|
-          #   format.js #-> loads /views/cookbooks/index.js.erb
-          # end
-          render new_user_response_path(question_id: @user_response.next_question.id.to_i), :layout => false
+          redirect_to new_user_response_path(question_id: @user_response.next_question.id)
         end
-      # }
-    # end
+      }
+      format.js {
+        @user_response.save!
+        if @user_response.next_question.nil?
+          redirect_to root_path, notice: "You're done!" # application is done!
+        else
+          # if params[:question_id].present?
+            @question = Question.find(@user_response.next_question.id.to_i)
+              # render :partial => 'user_responses/form', locals: {user_response: @user_response}
+          # else
+          #   @question = Question.first
+          # end
+          render :action => "new"#, questio: @user_response.next_question.id.to_i
+          # render new_user_response_path(), layout: false
+        end
+      }
+    end
   end
 
   # PATCH/PUT /user_responses/1
