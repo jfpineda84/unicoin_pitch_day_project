@@ -43,11 +43,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         process_image(@user) if @user.image_upload
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: root_path.errors, status: :unprocessable_entity }
       end
     end
   end
