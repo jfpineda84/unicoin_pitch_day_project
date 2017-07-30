@@ -4,14 +4,50 @@
 #messages {height: 300px; overflow: scroll; border: 1px solid #ddd}
 
 
+// slug backgrownd
 .index {
   background: url('http://mi.fancaps.net/Galleries/Monsters_University/Monsters_University_Screenshot_0374.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
-
-
-
 .index-page h1, h2 {
    color: white;
+}
+
+.fafsa-steps{
+  border-radius: 20px;
+}
+
+.fafsa-steps {
+  width: 40%;
+  height: auto;
+  margin-right: 5%;
+  margin-top: 15px;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  padding: 15px;
+  float: right;
+  clear: both;
+  background-color: #e3f2fd;
+}
+
+
+.form-container {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.form-container form label {
+  font-weight: bold;
+  display: inline;
 }
