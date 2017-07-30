@@ -13,7 +13,7 @@
         <!-- <li><%#= link_to 'Start your 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></li> -->
           <li><%= link_to 'Start your 2017-2018 FAFSA', new_user_response_path, remote: true %></li>
         <!-- <li><%#= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path if current_user.user_responses.count > 0 %></li> -->
-          <li><%= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path, remote: true %></li>
+          <li><%= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path, remote: true, class: 'initial-brand' %></li>
         <!-- <li><%#= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path if current_user.user_responses.count > 0 %></li> -->
           <li><%= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path, remote: true %></li>
       </ul>
