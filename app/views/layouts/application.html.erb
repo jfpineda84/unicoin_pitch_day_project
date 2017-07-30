@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width">
+
   </head>
 
   <body>
@@ -20,37 +21,44 @@
           </button>
         </div>
 
-        <!-- navigations bar -->
-        <div class="collapse navbar-collapse navbar-menubuilder">
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-            <li><a>Signed in as <%= current_user.name.capitalize %></a></li>
-            <li><%= link_to "Logout", logout_path %></li>
-            <% else %>
-            <li><%= link_to 'Login', login_path %></li>
-            <li><%= link_to 'Sign Up', register_path %></li>
-            <% end %>
-            <li><a href="http://localhost:3000/live_chat" onclick="window.open('http://localhost:3000/live_chat', 'newwindow', 'width=450, height=550'); return false;">Live Chat</a>
-            </li>
-            <li><a href="http://localhost:3000/faq">FAQ</a>
-            </li>
-            <li><a href="http://localhost:3000">Home</a>
-            </li>
-          </ul>
+          <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+              <li><a>Signed in as <%= current_user.name.capitalize %></a></li>
+              <li><%= link_to "Logout", logout_path %></li>
+              <% else %>
+              <li><%= link_to 'Login', login_path %></li>
+              <li><%= link_to 'Sign Up', register_path %></li>
+              <% end %>
+              <li><a href="http://localhost:3000/live_chat" onclick="window.open('http://localhost:3000/live_chat', 'newwindow', 'width=450, height=550'); return false;">Live Chat</a>
+              </li>
+              <li><a href="http://localhost:3000/faq">FAQ</a>
+              </li>
+              <li><a href="http://localhost:3000">Home</a>
+              </li>
+            </ul>
+          </div>
+          <!-- end of collapse navbar -->
         </div>
+        <!-- end of container fluid -->
       </div>
-    </div>
-    <!-- added these lines -->
+      <!-- added these lines -->
 
-    <% flash.each do |type, message| %>
-    <div class="alert alert-danger">
-      <button class="close" data-dismiss="alert">×</button>
-      <%= message.html_safe %>
-    </div>
+      <% flash.each do |type, message| %>
+      <div class="alert alert-danger">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= message.html_safe %>
+      <% end %>
+      </div>
+      <!-- end of flash alert sign -->
 
-    <% end %>
+    </header>
 
-    <%= yield %>
+    <main class="body-content">
+
+      <%= yield %>
+
+    </main>
 
   </body>
 </html>

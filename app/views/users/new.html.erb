@@ -1,4 +1,4 @@
-<div class="snail">
+<div class="login-background">
 
   <center>
     <div class="logo" id="slide-in">
@@ -90,7 +90,7 @@
     <!-- /.container -->
 </section>
 
-<center>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -102,5 +102,7 @@
       </ul>
     </div>
   <% end %>
+
+
 <!-- copy paste ends -->
 </div>
