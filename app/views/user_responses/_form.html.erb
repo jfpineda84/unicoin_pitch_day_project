@@ -1,65 +1,42 @@
+<div class="form-container">
+  <%= form_with(model: UserResponse.new, remote: true) do |form| %>
+  <% if user_response.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
 
-<div class="modal fade" id="fafsa-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">My 2017-2018 FAFSA</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-
-        <div class="form-container">
-          <%= form_with(model: UserResponse.new, remote: true) do |form| %>
-          <% if user_response.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(user_response.errors.count, "error") %> prohibited this user_response from being saved:</h2>
-
-            <ul>
-              <% user_response.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-          <% end %>
-
-          <center>
-            <div class="field">
-              <h2><%= @current_section %></h2>
-              <h3><%= label_tag question.text %><br></h3>
-              <% response_type = question.response_type  %>
-              <% if response_type == "String" %>
-              <%= form.text_field :response, id: :user_response_response %>
-              <% elsif response_type == "Integer" %>
-              <%= form.number_field :response, id: :user_response_response %>
-              <% elsif response_type == "Multiple choice" %>
-              <% answers = "Question::#{question.name.upcase}_ANSWERS".constantize if "Question::#{@question.name.upcase}_ANSWERS".constantize %>
-              <% answers.each do |answer| %>
-              <%= form.label answer %>
-              <%= form.radio_button :response, answer %>
-              <% end %>
-              <% end %>
-            </div>
-
-            <%= hidden_field_tag :user_id, current_user.id, id: :user_response_user_id %>
-            <%= form.hidden_field :question_id, value: @question.id, id: :user_response_question_id %>
-
-
-            <div class="actions">
-              <%= form.submit 'Next', class: "submit" %>
-            </div>
-          </center>
-          <% end %>
-        </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+    <ul>
+      <% user_response.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
+  <% end %>
+
+  <center>
+    <div class="field">
+      <h2><%= @current_section %></h2>
+      <h3><%= label_tag question.text %><br></h3>
+      <% response_type = question.response_type  %>
+      <% if response_type == "String" %>
+      <%= form.text_field :response, id: :user_response_response %>
+      <% elsif response_type == "Integer" %>
+      <%= form.number_field :response, id: :user_response_response %>
+      <% elsif response_type == "Multiple choice" %>
+      <% answers = "Question::#{question.name.upcase}_ANSWERS".constantize if "Question::#{@question.name.upcase}_ANSWERS".constantize %>
+      <% answers.each do |answer| %>
+      <%= form.label answer %>
+      <%= form.radio_button :response, answer %>
+      <% end %>
+      <% end %>
+    </div>
+
+    <%= hidden_field_tag :user_id, current_user.id, id: :user_response_user_id %>
+    <%= form.hidden_field :question_id, value: @question.id, id: :user_response_question_id %>
+
+
+    <div class="actions">
+      <%= form.submit 'Next', class: "submit" %>
+    </div>
+  </center>
+  <% end %>
 </div>

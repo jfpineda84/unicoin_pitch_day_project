@@ -1,49 +1,59 @@
 <body class="index">
-<center><h1 class="index-welcome">Welcome to Unicoin,
+  <center><h1 class="index-welcome">Welcome to Unicoin,
     <%= current_user.name.capitalize %>!</h1>
+  </center>
 
-</center>
 
-
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">STEP 1: Complete our simplified 2017-2018 FAFSA application.</h3>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">STEP 1: Complete our simplified 2017-2018 FAFSA application.</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <!-- <li><%#= link_to 'Start your 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></li> -->
+          <li><%= link_to 'Start your 2017-2018 FAFSA', new_user_response_path, remote: true %></li>
+        <!-- <li><%#= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path if current_user.user_responses.count > 0 %></li> -->
+          <li><%= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path, remote: true %></li>
+        <!-- <li><%#= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path if current_user.user_responses.count > 0 %></li> -->
+          <li><%= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path, remote: true %></li>
+      </ul>
+    </div>
   </div>
-  <div class="panel-body">
-    <ul>
-      <!-- <li><%#= link_to 'Start your 2017-2018 FAFSA', new_user_response_path if current_user.user_responses.count == 0 %></li> -->
-        <li><%= link_to 'Start your 2017-2018 FAFSA', new_user_response_path, remote: true %></li>
-      <!-- <li><%#= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path if current_user.user_responses.count > 0 %></li> -->
-        <li><%= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path, remote: true %></li>
-      <!-- <li><%#= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path if current_user.user_responses.count > 0 %></li> -->
-        <li><%= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path, remote: true %></li>
-    </ul>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">STEP 2: Upload a photo of your 2015 or 2016 tax returns.</h3>
+    </div>
+    <div class="panel-body">
+      <%= render 'users/image_upload', user: current_user %>
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">STEP 3: View and print your completed FAFSA.</h3>
+    </div>
+    <div class="panel-body">
+      <% if current_user.image_upload.exists? %>
+        <%= link_to "View my completed FAFSA", "/#{current_user.id}_fafsa.pdf" %>
+      <% else %>
+        Your completed FAFSA will appear once you have completed steps 1 and 2.
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">STEP 2: Upload a photo of your 2015 or 2016 tax returns.</h3>
-  </div>
-  <div class="panel-body">
-    <%= render 'users/image_upload', user: current_user %>
-  </div>
-</div>
+<!-- Modal -->
+<div class="modal fade fafsa-display-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
 
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">STEP 3: View and print your completed FAFSA.</h3>
+      </div>
+    </div>
   </div>
-  <div class="panel-body">
-    <% if current_user.image_upload.exists? %>
-      <%= link_to "View my completed FAFSA", "/#{current_user.id}_fafsa.pdf" %>
-    <% else %>
-      Your completed FAFSA will appear once you have completed steps 1 and 2.
-    <% end %>
-  </div>
-</div>
-
-</div>
-
-<div class="fafsa-display-modal">
 </div>

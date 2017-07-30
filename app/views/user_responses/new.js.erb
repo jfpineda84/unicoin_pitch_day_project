@@ -1,3 +1,5 @@
-$('.fafsa-display-modal').html(" <%= j render 'form', user_response: @user_response, question: @question %> ")
+$('.fafsa-display-modal .modal-body').html(" <%= j render 'form', user_response: @user_response, question: @question %> ")
 // $('.modal-body form').find('.actions').find('input[type=submit]').remove();
-$('#fafsa-modal').modal()
+<% if @question.id == 1 %>
+  $('.fafsa-display-modal').modal('show')
+<% end %>
