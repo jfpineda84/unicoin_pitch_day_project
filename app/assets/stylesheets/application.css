@@ -56,18 +56,6 @@
    background-color: #e3f2fd;
  }
 
- .fafsa-steps h3, h4, h5 {
-
- }
-
- .index-page {
-   background-image: url('http://mi.fancaps.net/Galleries/Monsters_University/Monsters_University_Screenshot_0374.jpg');
-   
- }
-
- .index-page h1, h2 {
-   color: white;
- }
 
  .form-container {
    width: 40%;
@@ -92,9 +80,7 @@ body {
   font-family: 'Univers';
 }
 
-h1, h2, h3 {
-  font-family: 'Univers';
-}
+
 
  #messages {
    background-color: #e3f2fd;
