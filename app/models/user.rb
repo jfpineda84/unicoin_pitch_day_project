@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :user_responses
   # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates_length_of :name, minimum: 2
-  validates_length_of :password, minimum: 8
+  # validates_length_of :password, minimum: 8
   has_attached_file :image_upload
 
    # Validate content type
