@@ -59,7 +59,10 @@ class UserResponsesController < ApplicationController
         if @user_response.next_question.nil?
           redirect_to root_path, notice: "You're done!" # application is done!
         else
-          render new_user_response_path(question_id: @user_response.next_question.id.to_i)
+          # respond_to do |format|
+          #   format.js #-> loads /views/cookbooks/index.js.erb
+          # end
+          render new_user_response_path(question_id: @user_response.next_question.id.to_i), :layout => false
         end
       # }
     # end
