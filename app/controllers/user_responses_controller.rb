@@ -17,8 +17,8 @@ class UserResponsesController < ApplicationController
     if !@user_response.nil?
       @question = Question.find(@user_response.question.id)
       # render :partial => 'user_responses/brand_new_form', locals: {user_response: @user_response}
+      render :action => "new"#, questio: @user_response.next_question.id.to_i
     end
-
   end
 
   # GET /user_responses/new
@@ -75,6 +75,7 @@ class UserResponsesController < ApplicationController
           # else
           #   @question = Question.first
           # end
+          # session[:question_id] = @question.id
           render :action => "new"#, questio: @user_response.next_question.id.to_i
           # render new_user_response_path(), layout: false
         end
