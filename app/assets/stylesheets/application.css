@@ -15,14 +15,26 @@
  *= require_self
  */
 
-ul {
- list-style-type: none;
+/*navigation css*/
+
+.nav-logo {
+  width: 106px;
+  height: auto;
+  margin-top: -10px;
+}
+.navbar-right ul:hover {
+  background-color: none!important;
 }
 
-.panel:hover li {
-  transform: scale(1.5);
-
+.navbar-right a {
+  color: white!important;
 }
+
+/* begining of navigation css*/
+
+
+
+
 
 
 .row {
@@ -109,13 +121,13 @@ ul {
  }
 
 #messages {
-  background-color: #e3f2fd;
+  background-color: white;
 }
 
 .homepage-login {
   width: 30%;
   height: auto;
-  background-color: #e3f2fd;
+  background-color: rgba(255, 202, 0, 0.96);
   padding-bottom: 20px;
   padding-top: 1px;
   border-radius: 20px;
@@ -142,51 +154,7 @@ ul {
 
 .navbar {
   margin: 0px;
-}
-#custom-bootstrap-menu.navbar-default .navbar-brand {
-  color: rgba(255, 255, 255, 1);
-}
-#custom-bootstrap-menu.navbar-default {
-  font-size: 14px;
-  background-color: rgba(43, 41, 41, 1);
-  background: -webkit-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(43, 41, 41, 1) 100%);
-  background: linear-gradient(to bottom, rgba(248, 248, 248, 1) 0%, rgba(43, 41, 41, 1) 100%);
-  border-width: 1px;
-  border-radius: 5px;
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(43, 41, 41, 1);
-  background: -webkit-linear-gradient(top, rgba(248, 248, 248, 0) 0%, rgba(43, 41, 41, 1) 100%);
-  background: linear-gradient(to bottom, rgba(248, 248, 248, 0) 0%, rgba(43, 41, 41, 1) 100%);
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-  color: rgba(81, 175, 194, 1);
-  background-color: rgba(25, 26, 26, 1);
-}
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
-#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-  color: rgba(81, 175, 194, 1);
-  background-color: rgba(30, 31, 31, 1);
-  background: -webkit-linear-gradient(top, rgba(66, 63, 63, 1) 0%, rgba(30, 31, 31, 1) 100%);
-  background: linear-gradient(to bottom, rgba(66, 63, 63, 1) 0%, rgba(30, 31, 31, 1) 100%);
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle {
-  border-color: #1e1f1f;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-  background-color: #1e1f1f;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-  background-color: #1e1f1f;
-}
-#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
-#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-  background-color: #2b2929;
-}
+
 
 @media only screen and (max-width: 600px) {
   .homepage-login {
