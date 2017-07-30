@@ -61,9 +61,7 @@ class UserResponsesController < ApplicationController
         if @user_response.next_question.nil?
           redirect_to root_path, notice: "You're done!" # application is done!
         else
-
           redirect_to new_user_response_path(question_id: @user_response.next_question.id)
-
         end
       }
       format.js {
