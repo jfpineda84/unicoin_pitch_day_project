@@ -222,15 +222,15 @@
   }
 
   .navbar-header .navbar-toggle .icon-bar {
-    background-color: #00aeef;
+    /*background-color: #00aeef;*/
   }
 
   #header .navbar-inverse .navbar-toggle:hover {
-    background: #00aeef;
+    /*background: #00aeef;*/
   }
 
   #header .navbar-inverse .navbar-toggle:hover .icon-bar {
-    background: #fff;
+    /*background: #fff;*/
   }
 
   .navbar-inverse .navbar-collapse,

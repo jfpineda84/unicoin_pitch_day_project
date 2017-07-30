@@ -15,26 +15,35 @@
  *= require_self
  */
 
+
 ul {
  list-style-type: none;
 }
 
-.panel:hover li {
+/*.panel:hover li {
   transform: scale(1.5);
-
-}
+}*/
 
 
 .row {
   margin: 0;
 }
 
- .panel {
+ .panel, .panel-success {
    width: 40%;
    float: right;
    clear: right;
    background-color: bhsla(120, 100%, 50%, 0.5);
    margin-right: 5%;
+   border-radius: 20px;
+ }
+
+.panel-heading {
+   border-radius: 20px 20px 0px 0px;
+ }
+
+ .panel-heading {
+   float: left;
  }
 
  .navigation-bar {
@@ -95,7 +104,7 @@ ul {
 
 
  .form-container {
-   width: 40%;
+   width: 95%;
    margin-right: auto;
    margin-left: auto;
    font-weight: bold;
@@ -126,6 +135,7 @@ ul {
   text-align: center;
   font-weight: normal;
   max-width: 100%;
+  color: white;
 }
 
 
@@ -148,44 +158,44 @@ ul {
 }
 #custom-bootstrap-menu.navbar-default {
   font-size: 14px;
-  background-color: rgba(43, 41, 41, 1);
-  background: -webkit-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(43, 41, 41, 1) 100%);
-  background: linear-gradient(to bottom, rgba(248, 248, 248, 1) 0%, rgba(43, 41, 41, 1) 100%);
+  /*background-color: rgba(43, 41, 41, 1);*/
+  /*background: -webkit-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(43, 41, 41, 1) 100%);
+  background: linear-gradient(to bottom, rgba(248, 248, 248, 1) 0%, rgba(43, 41, 41, 1) 100%);*/
   border-width: 1px;
   border-radius: 5px;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(43, 41, 41, 1);
-  background: -webkit-linear-gradient(top, rgba(248, 248, 248, 0) 0%, rgba(43, 41, 41, 1) 100%);
-  background: linear-gradient(to bottom, rgba(248, 248, 248, 0) 0%, rgba(43, 41, 41, 1) 100%);
+  /*color: rgba(255, 255, 255, 1);*/
+  /*background-color: rgba(43, 41, 41, 1);*/
+  /*background: -webkit-linear-gradient(top, rgba(248, 248, 248, 0) 0%, rgba(43, 41, 41, 1) 100%);
+  background: linear-gradient(to bottom, rgba(248, 248, 248, 0) 0%, rgba(43, 41, 41, 1) 100%);*/
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
-  color: rgba(81, 175, 194, 1);
-  background-color: rgba(25, 26, 26, 1);
+  /*color: rgba(81, 175, 194, 1);*/
+  /*background-color: rgba(25, 26, 26, 1);*/
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
-  color: rgba(81, 175, 194, 1);
-  background-color: rgba(30, 31, 31, 1);
-  background: -webkit-linear-gradient(top, rgba(66, 63, 63, 1) 0%, rgba(30, 31, 31, 1) 100%);
-  background: linear-gradient(to bottom, rgba(66, 63, 63, 1) 0%, rgba(30, 31, 31, 1) 100%);
+  /*color: rgba(81, 175, 194, 1);*/
+  /*background-color: rgba(30, 31, 31, 1);*/
+  /*background: -webkit-linear-gradient(top, rgba(66, 63, 63, 1) 0%, rgba(30, 31, 31, 1) 100%);
+  background: linear-gradient(to bottom, rgba(66, 63, 63, 1) 0%, rgba(30, 31, 31, 1) 100%);*/
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle {
   border-color: #1e1f1f;
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-  background-color: #1e1f1f;
+  /*background-color: #1e1f1f;*/
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
-  background-color: #1e1f1f;
+  /*background-color: #1e1f1f;*/
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-  background-color: #2b2929;
+  /*background-color: #2b2929;*/
 }
 
 @media only screen and (max-width: 600px) {

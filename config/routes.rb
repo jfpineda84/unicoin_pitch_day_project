@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :user_responses
   resources :questions
   resources :forms
+
   root 'page#index'
+
+  get '/' => 'sessions#create'
 
   get '/myfafsa' => 'forms#generate_pdf'
   get '/live_chat' => 'page#live_chat'
