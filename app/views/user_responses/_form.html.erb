@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container" id="fafsa-form">
   <%= form_with(model: UserResponse.new, remote: true) do |form| %>
   <% if user_response.errors.any? %>
   <div id="error_explanation">
