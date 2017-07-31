@@ -6,13 +6,19 @@
 
 // slug backgrownd
 .index-page {
-  background: url('http://mi.fancaps.net/Galleries/Monsters_University/Monsters_University_Screenshot_0374.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background-image: url("http://mi.fancaps.net/Galleries/Monsters_University/Monsters_University_Screenshot_0374.jpg");
+  background-repeat: no-repeat!important;
+  background-position: 50% 75%;
+  width: 100%;
+  height: 100vh;
 }
 
 .index-page h1, h2 {
    color: white;
    font-weight: bolder;
+   margin-top: 0;
+   padding-top: 6%;
+   padding-bottom: 2%;
 }
 
 .index-welcome {
