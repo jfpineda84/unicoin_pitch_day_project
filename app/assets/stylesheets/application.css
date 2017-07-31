@@ -15,7 +15,38 @@
  *= require_self
  */
 
-<<<<<<< HEAD
+
+ .modal-header {
+   background-color: #dff0d8;
+ }
+
+ .modal-title {
+   color: #3c763d;
+ }
+
+ .service-item {
+   border-width: 1px;
+   border-style: solid;
+   border-color: lightgrey;
+   padding: 10px;
+ }
+
+ #services {
+   margin-bottom: 20px;
+ }
+
+#footer {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 202, 0, 0.96);
+}
+
+/* fafsa form css */
+#fafsa-form label, input {
+  color: black;
+}
+
+
 /*navigation css*/
 
 .nav-logo {
@@ -30,26 +61,22 @@
 .navbar-right a {
   color: white!important;
 }
-=======
-
-ul {
- list-style-type: none;
-}
-
-/*.panel:hover li {
-  transform: scale(1.5);
-}*/
->>>>>>> cecesbranchlatestlatest
 
 /* begining of navigation css*/
 
 
 
-
+ul {
+  list-style-type: none;
+}
 
 
 .row {
   margin: 0;
+}
+
+.panel h1, h2, h3 {
+  font-weight: bold;
 }
 
  .panel, .panel-success {
@@ -63,6 +90,7 @@ ul {
 
 .panel-heading {
    border-radius: 20px 20px 0px 0px;
+   margin-bottom: 10px;
  }
 
  .panel-heading {
@@ -121,11 +149,6 @@ ul {
    background-color: #e3f2fd;
  }
 
- .fafsa-steps h1, h2, h3, h4 {
-   font-weight: bolder;
- }
-
-
  .form-container {
    width: 95%;
    margin-right: auto;
@@ -154,11 +177,15 @@ ul {
   margin-bottom: 10%;
 }
 
-.homepage-login form, form label {
+.homepage-login form, form label, h1 {
   text-align: center;
   font-weight: normal;
   max-width: 100%;
   color: white;
+}
+
+.homepage-login input, a {
+  color: black;
 }
 
 
@@ -175,9 +202,6 @@ ul {
 
 .navbar {
   margin: 0px;
-<<<<<<< HEAD
-
-=======
 }
 #custom-bootstrap-menu.navbar-default .navbar-brand {
   color: rgba(255, 255, 255, 1);
@@ -223,7 +247,6 @@ ul {
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
   /*background-color: #2b2929;*/
 }
->>>>>>> cecesbranchlatestlatest
 
 @media only screen and (max-width: 600px) {
   .homepage-login {

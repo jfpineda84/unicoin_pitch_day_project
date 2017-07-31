@@ -1,6 +1,5 @@
 <div class="index-page">
-  <center><h1 class="index-welcome">Welcome to Unicoin,
-    <%= current_user.name.capitalize %>!</h1>
+  <center><h1 class="index-welcome" id="slide-in">Welcome to Unicoin, <%= current_user.name.capitalize %>!</h1>
   </center>
 
 
@@ -13,7 +12,7 @@
           <li><%= link_to 'Start your 2017-2018 FAFSA', new_user_response_path, remote: true if current_user.user_responses.count == 0 %></li>
           <% if current_user.user_responses.count > 0 %>
             <li><%= link_to 'Continue your saved 2017-2018 FAFSA', brand_new_path, remote: true %></li>
-            <li><%= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path, remote: true %></li>
+            <!-- <li><%= link_to 'Update your saved 2017-2018 FAFSA', user_responses_path, remote: true %></li> -->
           <% end %>
       </ul>
     </div>
@@ -30,16 +29,36 @@
 
   <div class="panel panel-success">
     <div class="panel-heading">
-      <h3 class="panel-title">STEP 3: View, print, sign, and mail your completed FAFSA.</h3>
+      <h3 class="panel-title">STEP 3: Download and review your completed FAFSA.</h3>
     </div>
     <div class="panel-body">
       <% if current_user.image_upload.exists? %>
         <%= link_to "View my completed FAFSA", "/#{current_user.id}_fafsa.pdf" %>
       <% else %>
-        Your completed FAFSA will appear once you have completed steps 1 and 2.
+        Your completed FAFSA will be displayed here once you have completed steps 1 and 2.
       <% end %>
     </div>
   </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">STEP 4: Submit your completed FAFSA to the US Department of Education.</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li>Print your completed FAFSA.</li>
+        <li>Sign page 8 of your completed FAFSA.</li>
+        <li>Put your printed and signed FAFSA in an envelope and mail it to:</li><br>
+        <address>
+          Federal Student Aid Programs<br>
+          PO Box 7654<br>
+          London, KY 40742-7654
+        </address>
+      </ul>
+    </div>
+  </div>
+
+
 </div>
 
 <!-- Modal -->
@@ -48,7 +67,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel"><b><center><%= current_user.name.capitalize %>'s 2017-2018 FAFSA</center><b></h4>
       </div>
       <div class="modal-body">
 
