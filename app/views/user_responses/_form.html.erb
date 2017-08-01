@@ -24,8 +24,10 @@
       <% elsif response_type == "Multiple choice" %>
       <% answers = "Question::#{question.name.upcase}_ANSWERS".constantize if "Question::#{@question.name.upcase}_ANSWERS".constantize %>
       <% answers.each do |answer| %>
-      <%= form.label answer %>
-      <%= form.radio_button :response, answer %>
+        <div>
+        <%= form.label answer, for: "#{answer}_id" %>
+        <%= form.radio_button :response, answer, id: "#{answer}_id" %>
+        </div>
       <% end %>
       <% end %>
     </div>

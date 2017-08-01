@@ -79,8 +79,8 @@ questions = [
 # ALL users answer
 
 
-{position: 41, name: 'account_balance' , text: "As of today, what is your (and spouse's) total current balance of cash, savings, and checking accounts? Don't include student financial aid.", response_type: 'Integer', section: 3},
-{position: 42, name: 'real_estate' , text: "As of today, what is the current value of your (and spouse's) investments, including real estate? Don't include the home you live in. If you and your spouse do not own any additional properties, put 0", response_type: 'Integer', section: 3},
+{position: 41, name: 'account_balance' , text: "As of today, what is your total current balance of cash, savings, and checking accounts?", response_type: 'Integer', section: 3},
+{position: 42, name: 'real_estate' , text: "As of today, what is the current value of your investments, including real estate? Don't include the home you live in. If you do not own any additional properties, put 0.", response_type: 'Integer', section: 3},
 {position: 43, name: 'business_investments' , text: "As of today, what is the net worth of your (and spouse's) current businesses and/or investment farms? Don't include a family farm or family business with 100 or fewer full-time or full-time equivalent employees. If you ", response_type: 'Integer', section: 3},
 {position: 44, name: 'child_support_paid' , text: "Child support paid because of divorce or separation or as a result of a legal requirement. Don't include support for children in your household, as reported in question 95.", response_type: 'Integer', section: 3},
 {position: 44, name: 'need_based_employment' , text: 'Taxable earnings from need-based employment programs, such as Federal Work-Study and need-based employment programs of fellowships and assistantships', response_type: 'Integer', section: 3},
