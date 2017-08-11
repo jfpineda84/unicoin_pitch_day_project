@@ -23,7 +23,6 @@ This web application framework has been build using: Ruby on Rails, HTML, CSS an
 * The **Tax return uploader and reader** was built using: PaperClip, AmazonWebServices and Google Cloud Vision API.
 * The **FAFSA Generator** was built using: PDFtk (pdf-forms gem)
 
-
 ## Synopsis
 
 > This project was created with the contribution of _(for details on GitHub contact info, see below @ **For more info** )_:
@@ -34,11 +33,7 @@ This web application framework has been build using: Ruby on Rails, HTML, CSS an
 > 
 > Along the synopsis I will ID the Division of Responsibility (**DOR**) between the group.
 
-
-
-
 ### Part 1 - Setup & Understanding
-
 
 The first step to this project, was to research and understand how the FAFSA application and questionnaire. Logic maps were developed as well as question logic understanding and form flow.
 
@@ -69,23 +64,24 @@ Entity Relationship Diagrams were created to develop the Rails infrastructure an
 ### Part 3 - Internals: _Simplified Smart Form & FAFSA Generator | In-chat application | Tax-Return Loader & Reader_
 
 
-* The **Simplified Smart Form** allowed the user a simplified question sequence with the objective to provide a cleaner and lean user experience. Further, reduce the hazzel for complex questions.  
+* The **Simplified Smart Form** allowed the user a simplified question sequence with the objective to provide a cleaner and lean user experience. Further, reduce the hazzel for complex questions. 
+> **DOR: _Cece Claridge_
 
 ![index01](https://user-images.githubusercontent.com/28307526/29199272-7508dc7a-7e19-11e7-8873-352904e37ebb.png)
 ![index02-question](https://user-images.githubusercontent.com/28307526/29199282-8b28acb0-7e19-11e7-9705-186115878353.png)
 
-> **DOR: _Cece Claridge_
 ---
 
 * The **In-Chat Application** was developed with the user in mind, to allow them to ask questions during the evolution of the questionnaire.
+> **DOR: _Javier Gonzalez_
 
 ![question01](https://user-images.githubusercontent.com/28307526/29199300-aff86c6a-7e19-11e7-90c8-4a2de8802e18.png)
 ![index04-question](https://user-images.githubusercontent.com/28307526/29199304-b2a96798-7e19-11e7-9a35-1e17eedefefc.png)
-
-> **DOR: _Javier Gonzalez_ 
+ 
 ---
 
 * The **Tax-Return Loader & Reader** allowed the user to upload a picture of their tax return, and once uploaded, the image was processed, broken apart thus providing <string> results to be parsed out using regular expressions filtering.
+> **DOR: _Juan Fernando Pineda_
 
 ![upload01](https://user-images.githubusercontent.com/28307526/29199325-d5c3e564-7e19-11e7-83ef-aae679e24ddc.png)
 ![upload02](https://user-images.githubusercontent.com/28307526/29199327-d5c5b362-7e19-11e7-9a5e-2228524798b0.png)
@@ -97,16 +93,14 @@ The images below, shows how the uploaded image is parsed with the app code. The 
 ![code01](https://user-images.githubusercontent.com/28307526/29199688-ebda4598-7e1c-11e7-8017-b91da6b2a144.png)
 ![code02](https://user-images.githubusercontent.com/28307526/29199689-ebdc34e8-7e1c-11e7-9bb5-f32700455891.png)
 
-
-> **DOR: _Juan Fernando Pineda_
 ---
 
 * The **FAFSA Generator** was created to return the final product, a pre-filled FAFSA PDF form.
+> **DOR: _Cece Claridge_
 
 ![pre-filled01](https://user-images.githubusercontent.com/28307526/29199622-5ede5f4e-7e1c-11e7-8eea-dfa294268f31.png)
 ![pre-filled02](https://user-images.githubusercontent.com/28307526/29199623-5ede91ee-7e1c-11e7-8fa3-109f9d60960c.png)
 
-> **DOR: _Cece Claridge_
 ---
 
 ## Highlights for part of the project under Juan Fernando Pineda
@@ -131,7 +125,6 @@ The images below, shows how the uploaded image is parsed with the app code. The 
 * Wyncode TA’s & colleagues
 * [Google Vision API](https://cloud.google.com/vision/)
 * [Amazon Web Services S3](https://aws.amazon.com/)
-
 
 ## For more info 
 
