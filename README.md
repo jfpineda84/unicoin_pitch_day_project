@@ -37,7 +37,7 @@ This web application framework has been build using: Ruby on Rails, HTML, CSS an
 
 
 
-## Part 1 - Setup & Understanding
+### Part 1 - Setup & Understanding
 
 
 The first step to this project, was to research and understand how the FAFSA application and questionnaire. Logic maps were developed as well as question logic understanding and form flow.
@@ -54,7 +54,7 @@ This is an example of the question logic development in relation to the apps mod
 
 ---
 
-## Part 2 - Development
+### Part 2 - Development
 
 > **DOR: _Cece Claridge & Javier Gonzalez_**
 
@@ -66,7 +66,7 @@ Entity Relationship Diagrams were created to develop the Rails infrastructure an
 
 ---
 
-## Part 3 - Internals: _Simplified Smart Form & FAFSA Generator | In-chat application | Tax-Return Loader & Reader_
+### Part 3 - Internals: _Simplified Smart Form & FAFSA Generator | In-chat application | Tax-Return Loader & Reader_
 
 
 * The **Simplified Smart Form** allowed the user a simplified question sequence with the objective to provide a cleaner and lean user experience. Further, reduce the hazzel for complex questions.  
@@ -109,7 +109,7 @@ The images below, shows how the uploaded image is parsed with the app code. The 
 > **DOR: _Cece Claridge_
 ---
 
-### Highlights for part of the project under Juan Fernando Pineda
+## Highlights for part of the project under Juan Fernando Pineda
 
 **Learned about:**
 
@@ -125,7 +125,7 @@ The images below, shows how the uploaded image is parsed with the app code. The 
 * Asking for help
 * Researching aid materials online (videos tutorials, written tutorials, HTML and CSS basic properties, ERD development)
 
-### Resources for part of the project under Juan Fernando Pineda
+## Resources for part of the project under Juan Fernando Pineda
 
 * [Wyncode resources](https://wyncode.co/coding-bootcamp-2/)
 * Wyncode TA’s & colleagues
@@ -133,7 +133,7 @@ The images below, shows how the uploaded image is parsed with the app code. The 
 * [Amazon Web Services S3](https://aws.amazon.com/)
 
 
-#### For more info 
+## For more info 
 
 * **Cece Claridge** - GitHub _**cececlar**_ Back-end / Front - end
 * **Javier Gonzalez** - GitHub _**javiergonzalez54**_ Back-end / Front - end
