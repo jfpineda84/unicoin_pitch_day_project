@@ -130,4 +130,4 @@ The images below, shows how the uploaded image is parsed with the app code. The 
 
 * **Cece Claridge** - GitHub _**cececlar**_ Back-end / Front - end
 * **Javier Gonzalez** - GitHub _**javiergonzalez54**_ Back-end / Front - end
-* **Juan Fernando** - GitHub _**jfpineda84**_ Back-end / Front - end
+* **Juan Fernando** - GitHub _**jfpineda84**_ Back-end / Front - end / Project Management
